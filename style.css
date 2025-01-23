@@ -1,52 +1,84 @@
-/* Všeobecné nastavenia */
+/* Základné nastavenia */
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Tmavé pozadie */
-    color: #ffffff; /* Biele písmo */
+    background-color: #121212;
+    color: #ffffff;
     margin: 0;
     padding: 0;
-    text-align: center; /* Centrovanie celého textu */
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin: 20px 0;
-    color: #00aaff;
-}
-
-section {
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 800px;
     text-align: center;
 }
 
-section h2, section h3, .large-title {
-    color: #00aaff;
-}
-
-section h2, section h3 {
-    font-size: 1.8em;
-    margin-bottom: 10px;
-}
-
-.large-title {
-    font-size: 2.5em; /* Zvýšená veľkosť pre veľké nadpisy */
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-a img {
+/* Karty */
+.card {
+    background-color: #1e1e1e;
+    border: 1px solid #00aaff;
     border-radius: 10px;
-    margin: 20px 0;
-    transition: transform 0.3s;
+    width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-a img:hover {
-    transform: scale(1.1);
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Modálne okno */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%; /* Zvýšená veľkosť */
+    max-height: 90%; /* Zachovanie pomeru strán */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+/* Animácia pre zväčšenie */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #aaa;
 }
