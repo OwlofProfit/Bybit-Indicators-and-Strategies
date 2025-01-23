@@ -46,7 +46,7 @@
                 It’s an essential tool for traders to visualize charts and indicators.
             </p>
             <a href="https://www.tradingview.com/pricing/?share_your_love=One_Eyed_Owl" target="_blank">
-                <img src="TradingView.png" alt="TradingView" style="width:200px;">
+                <img src="TradingView.png" alt="TradingView" class="hover-effect logo-small">
             </a>
 
             <h3>Bybit</h3>
@@ -54,14 +54,14 @@
                 Bybit is my preferred platform for trading and testing bots in real market conditions.
             </p>
             <a href="https://www.bybit.com/invite?ref=16MQN3" target="_blank">
-                <img src="Bybit.png" alt="Bybit" style="width:200px;">
+                <img src="Bybit.png" alt="Bybit" class="hover-effect logo-small">
             </a>
         </section>
 
         <section class="center">
             <h1 class="large-title">My Ko-Fi Account</h1>
             <a href="https://ko-fi.com/owlofprofit" target="_blank">
-                <img src="Ko-fi.png" alt="Support My Work on Ko-Fi" style="width:300px;">
+                <img src="Ko-fi.png" alt="Support My Work on Ko-Fi" class="hover-effect logo-large">
             </a>
             <p>
                 ☕ <strong>Support My Work</strong>
@@ -71,12 +71,10 @@
             </p>
         </section>
 
-        <section class="center">
-            <h2>Strategies</h2>
-
-            <!-- Sekcia s kartami -->
-            <div class="strategy-section">
-                <!-- Prvá karta -->
+        <section class="strategy-section">
+            <!-- Nadpis "Strategies" centrovaný nad kartami -->
+            <h2 class="strategies-title">Strategies</h2>
+            <div class="cards-container">
                 <div class="card" onclick="openModal(this)">
                     <img src="SAR Strategy 1000PEPEUSDT.png" alt="SAR Strategy">
                     <h3 class="status-break-even">SAR Strategy</h3>
@@ -92,14 +90,13 @@
                     <p><strong>Inspired by:</strong> SELF MADE</p>
                 </div>
 
-                <!-- Druhá karta -->
                 <div class="card" onclick="openModal(this)">
                     <img src="EMA 9 + EMA 21 Strategy 1000PEPEUSDT.png" alt="EMA 9 + EMA 21 Strategy">
                     <h3 class="status-non-profitable">EMA 9 + EMA 21 Strategy</h3>
                     <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
                     <p><strong>Status:</strong> Not Profitable</p>
                     <p><strong>On Bybit:</strong> YES</p>
-                    <p><strong>Indicator(s):</strong> EMA 9 + EMA 21</p>
+                    <p><strong>Indicator(s):</strong> EMA 9, EMA 21</p>
                     <p><strong>Type of strategy:</strong> Trend-following strategy</p>
                     <p><strong>Trading Time Frame:</strong> 1M</p>
                     <p><strong>Number of Trades:</strong> 540</p>
@@ -111,10 +108,9 @@
         </section>
     </main>
 
-    <!-- Modálne okno -->
     <div id="modal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modal-image">
+        <img id="modal-image" class="modal-content" alt="Strategy Image">
     </div>
 
     <script src="script.js"></script>
