@@ -41,12 +41,13 @@ h3 {
     color: #00ff00;
 }
 
+/* Flexbox pre karty */
 .cards-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 0;
+    flex-wrap: wrap; /* Umožňuje prechod na nový riadok, ak nie je dosť miesta */
+    justify-content: center; /* Zarovnanie na stred */
+    gap: 20px; /* Medzery medzi kartami */
+    padding: 20px 0; /* Vnútorné medzery kontajnera */
 }
 
 .card {
@@ -84,7 +85,7 @@ h3 {
 
 /* Sekcie s väčšími medzerami */
 section {
-    margin: 100px 0; /* Zvýšená medzera medzi sekciami */
+    margin: 100px 0; /* Väčšia medzera medzi sekciami */
     padding: 0 20px;
 }
 
