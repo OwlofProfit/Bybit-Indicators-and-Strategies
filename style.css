@@ -8,13 +8,68 @@ body {
     text-align: center;
 }
 
+/* Nadpisy */
+h1 {
+    color: #4db8ff; /* Svetlomodrý nadpis */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #ff80ff; /* Svetlofialový nadpis */
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.large-title {
+    font-size: 2.5em;
+    color: #ffa07a; /* Svetlooranžový nadpis */
+}
+
+/* Farby pre statusy stratégií */
+.status-break-even {
+    color: #ffcc00; /* Žltá pre Break-even */
+}
+
+.status-profitable {
+    color: #00ff00; /* Zelená pre Profitable */
+}
+
+.status-non-profitable {
+    color: #ff3333; /* Červená pre Non-profitable */
+}
+
+/* Text */
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Sekcie */
+section {
+    margin: 60px 0; /* Väčšie medzery medzi sekciami */
+    padding: 0 20px; /* Vnútorné okraje sekcií */
+}
+
 /* Karty */
+.strategy-section {
+    display: flex;
+    flex-wrap: wrap; /* Zalomenie do ďalšieho riadku */
+    justify-content: center; /* Zarovná karty do stredu */
+    gap: 30px; /* Medzery medzi kartami */
+    margin: 50px 0;
+}
+
 .card {
     background-color: #1e1e1e;
     border: 1px solid #00aaff;
     border-radius: 10px;
     width: 300px;
-    margin: 20px auto;
     padding: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     text-align: left;
@@ -27,14 +82,26 @@ body {
 }
 
 .card img {
-    width: 100%;
+    width: 100%; /* Obrázok sa prispôsobí šírke karty */
     border-radius: 10px;
+    margin-bottom: 15px; /* Medzera medzi obrázkom a textom */
     transition: transform 0.3s ease;
+}
+
+/* Obrázky s efektom pri prechode myškou */
+a img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+}
+
+a img:hover {
+    transform: scale(1.1); /* Mierne zväčšenie */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6); /* Pridanie tieňa */
 }
 
 /* Modálne okno */
 .modal {
-    display: none;
+    display: none; /* Na začiatku skryté */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -56,7 +123,6 @@ body {
     animation: zoomIn 0.3s ease-in-out;
 }
 
-/* Animácia pre zväčšenie */
 @keyframes zoomIn {
     from {
         transform: scale(0.5);
@@ -81,4 +147,9 @@ body {
 
 .close:hover {
     color: #aaa;
+}
+
+/* Extra medzery medzi sekciami */
+section {
+    margin-top: 80px;
 }
