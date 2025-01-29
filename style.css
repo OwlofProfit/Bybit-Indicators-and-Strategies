@@ -131,14 +131,17 @@ section {
 .banner-container {
     position: relative;
     width: 100vw;
-    height: 80vh; /* Výška môžeš prispôsobiť podľa potreby */
+    height: 80vh; /* Môžeš upraviť podľa potreby */
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zabezpečí, že obrázok pokryje celý priestor */
+    object-fit: cover; /* Zabezpečí, že obrázok pokryje celý priestor bez deformácie */
 }
 
 
