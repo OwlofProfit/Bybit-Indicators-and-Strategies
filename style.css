@@ -129,18 +129,18 @@ section {
 }
 
 .banner-container {
-    width: 100vw; /* Nastaví šírku na 100% šírky okna */
+    width: 100vw;  /* Celá šírka obrazovky */
     max-width: 100%;
-    overflow: hidden; /* Skryje presahujúce časti */
+    overflow: hidden;
 }
-
 
 .banner {
-    width: 100vw; /* Roztiahne obrázok na celú šírku stránky */
-    height: auto; /* Zachová pomer strán */
-    object-fit: cover; /* Pokryje celý priestor, ale neskalpuje */
+    width: 100vw; /* Roztiahne obrázok na celú šírku */
+    height: auto;  /* Zachová pomer strán */
+    object-fit: cover; /* Umožní orezanie okrajov, aby zapadol do šírky */
     display: block;
 }
+
 
 
 
