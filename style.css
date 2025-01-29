@@ -130,16 +130,16 @@ section {
 
 .banner-container {
     width: 100vw;  /* Celá šírka obrazovky */
-    max-width: 100%;
-    overflow: hidden;
+    height: auto; /* Automatická výška */
+    overflow: hidden; /* Odstráni prípadné posuny */
 }
 
 .banner {
     width: 100vw; /* Roztiahne obrázok na celú šírku */
     height: auto;  /* Zachová pomer strán */
-    object-fit: cover; /* Umožní orezanie okrajov, aby zapadol do šírky */
     display: block;
 }
+
 
 
 
