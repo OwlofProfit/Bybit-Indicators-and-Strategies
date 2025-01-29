@@ -127,3 +127,24 @@ section {
     font-size: 40px;
     cursor: pointer;
 }
+
+.banner-container {
+    width: 100vw; /* Nastaví šírku na 100% šírky okna */
+    max-width: 100%;
+    overflow: hidden; /* Skryje presahujúce časti */
+}
+
+
+.banner {
+    width: 100vw; /* Roztiahne obrázok na celú šírku stránky */
+    height: auto; /* Zachová pomer strán */
+    object-fit: cover; /* Pokryje celý priestor, ale neskalpuje */
+    display: block;
+}
+
+
+
+
+
+
+
