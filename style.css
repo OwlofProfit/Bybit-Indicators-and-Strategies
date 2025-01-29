@@ -141,8 +141,10 @@ section {
 .banner {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Zabezpečí, že obrázok pokryje celý priestor bez deformácie */
+    object-fit: cover;
+    object-position: 50% 20%; /* 50% horizontálne (stred), 30% vertikálne */
 }
+
 
 
 
