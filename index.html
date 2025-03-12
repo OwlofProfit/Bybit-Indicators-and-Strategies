@@ -2,176 +2,192 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landing Page - Test With Controls</title>
+  <title>Owl of Profit</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Google Font: Poppins -->
-  <link rel="stylesheet"
+  <link rel="stylesheet" 
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap">
 
   <style>
     /* RESET */
     * {
-      margin: 0;
-      padding: 0;
+      margin: 0; 
+      padding: 0; 
       box-sizing: border-box;
     }
-    html, body {
-      width: 100%;
-      height: 100%;
+    body {
+      font-family: Arial, sans-serif; /* fallback */
       background-color: #121212;
       color: #ffffff;
-      font-family: Arial, sans-serif; /* fallback */
-      /* Môžete dať overflow: hidden; ak nechcete scrollbar. */
+      overflow-x: hidden;
     }
     a {
+      color: inherit;
       text-decoration: none;
+    }
+
+    /* TOP NAVIGATION */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0e0e0e;
+      padding: 20px;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    .logo-img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;  /* Okrúhle logo */
+      object-fit: cover;
+    }
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+    .nav-links a {
+      margin-right: 20px;
+      color: #ccc;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
       color: #fff;
     }
 
+    /* HERO (VIDEO BACKGROUND) */
     .hero {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 100vh; 
       overflow: hidden;
     }
-
-    /* VIDEO pozadie */
     #bg-video {
       position: absolute;
-      top: 0;
+      top: 0; 
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: -1; 
     }
-
-    /* Overlay – priehľadný (môžete zmeniť na rgba(0,0,0,0.3), ak chcete stmaviť) */
     .overlay {
       position: absolute;
-      top: 0;
+      top: 0; 
       left: 0;
-      width: 100%;
+      width: 100%; 
       height: 100%;
-      background: rgba(0,0,0,0); /* nech je video viditeľné */
+      background: rgba(0, 0, 0, 0.45); /* polopriesvitný filter na video */
       z-index: 0;
     }
-
-    /* VEĽKÉ LOGO (400×400) */
-    .center-logo {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      object-fit: cover;
-      z-index: 2;
-    }
-
-    /* MENU VPRAVO */
-    .right-menu {
-      position: absolute;
-      top: 100px;
-      right: 20px;
+    .hero-content {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      z-index: 2;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 0 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .menu-item {
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 8px;
-      padding: 15px 20px;
+    .hero-content h1 {
       font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .hero-content p {
       font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      width: 150px;
-    }
-
-    /* HLAVNÝ TEXT ~60% VÝŠKY */
-    .hero-heading {
-      position: absolute;
-      left: 50%;
-      top: 60%;
-      transform: translate(-50%, -50%);
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.2rem;
-      text-align: center;
       max-width: 700px;
-      z-index: 2;
+      color: #ddd;
+      line-height: 1.6;
     }
 
-    /* IKONY DOLE */
-    .bottom-icons {
-      position: absolute;
-      bottom: 30px;
+    /* IKONY DOLE NAD VIDEOM */
+    .icons-over-video {
+      position: absolute;     /* absolútne voči hero sekcii */
+      bottom: 30px;          /* posun odspodu */
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 40px;
-      z-index: 2;
+      z-index: 2;            /* musí byť nad overlayom a videom */
     }
-    .bottom-icons img {
-      width: 80px;
+    .icons-over-video img {
+      width: 100px; 
       height: auto;
       filter: grayscale(100%);
       transition: filter 0.3s ease;
     }
-    .bottom-icons img:hover {
+    .icons-over-video img:hover {
       filter: none;
     }
-    .bottom-icons img.ko-fi-icon {
-      width: 80px;
+    .icons-over-video img.ko-fi-icon {
+      width: 100px; 
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #111;
+      text-align: center;
+      color: #666;
+      padding: 20px;
+      font-size: 0.9rem;
     }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .center-logo {
-        width: 200px;
-        height: 200px;
+      .hero-content h1 {
+        font-size: 2rem;
       }
-      .menu-item {
+      .hero-content p {
         font-size: 1rem;
-        width: 130px;
       }
-      .hero-heading {
-        font-size: 1.6rem;
+      .icons-over-video {
+        gap: 20px;
       }
-      .bottom-icons img,
-      .bottom-icons img.ko-fi-icon {
-        width: 60px;
+      .icons-over-video img,
+      .icons-over-video img.ko-fi-icon {
+        width: 80px;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV - Home / Strategies / Bots / NFT -->
+  <nav class="top-nav">
+    <div class="logo-container">
+      <img src="favicon.png" alt="Owl of Profit Logo" class="logo-img">
+      <span class="logo-text">Owl of Profit</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Strategies</a>
+      <a href="#">Bots</a>
+      <a href="#">NFT</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION S VIDEOM -->
   <section class="hero">
-    <!-- Video s controls (aby ste videli Play/Pause), preload (aby sa načítalo hneď), 
-         playsinline (na mobiloch), autoplay (spustí), muted (dôležité pre autoplay), loop. -->
-    <video id="bg-video" controls preload="auto" playsinline autoplay muted loop>
+    <!-- Video musí byť naozaj v rovnakom priečinku ako index.html -->
+    <video id="bg-video" playsinline autoplay muted loop>
       <source src="background landing page.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-
     <div class="overlay"></div>
 
-    <img src="favicon.png" alt="Logo" class="center-logo">
-
-    <div class="right-menu">
-      <a href="#" class="menu-item">Home</a>
-      <a href="#" class="menu-item">Strategies</a>
-      <a href="#" class="menu-item">Bots</a>
-      <a href="#" class="menu-item">NFT</a>
-    </div>
-
-    <h1 class="hero-heading">Backtested strategies and real-time tested bots</h1>
-
-    <div class="bottom-icons">
+    <!-- IKONY DOLE NAD VIDEOM -->
+    <div class="icons-over-video">
       <a href="https://www.bybit.com/invite?ref=16MQN3" target="_blank">
         <img src="Bybit.png" alt="Bybit">
       </a>
@@ -182,7 +198,16 @@
         <img src="Ko-fi.png" alt="Ko-fi" class="ko-fi-icon">
       </a>
     </div>
+
+    <div class="hero-content">
+      <h1>Backtested strategies and real-time tested bots</h1>
+      <p>Explore a wide range of strategies and automated bots thoroughly tested on real data.</p>
+    </div>
   </section>
+
+  <footer>
+    &copy; 2025 Owl of Profit. All rights reserved.
+  </footer>
 
 </body>
 </html>
