@@ -34,7 +34,8 @@
       right: 20px;
       display: flex;
       flex-direction: column;
-      align-items: flex-end; /* zarovná text v rámci boxu doprava */
+      align-items: flex-end;
+      z-index: 100; /* Zabezpečí, že odkazy budú nad ostatnými prvkami */
     }
     .nav-links a {
       background-color: #222;
@@ -42,7 +43,7 @@
       padding: 10px 20px;
       color: #ccc;
       font-weight: 500;
-      margin-bottom: 10px; /* medzera medzi jednotlivými odkazmi */
+      margin-bottom: 10px;
       transition: background-color 0.3s ease;
     }
     .nav-links a:hover {
@@ -72,8 +73,9 @@
       left: 0;
       width: 100%; 
       height: 100%;
-      background: rgba(0, 0, 0, 0.45); /* polopriesvitný filter na video */
+      background: rgba(0, 0, 0, 0.45);
       z-index: 0;
+      pointer-events: none; /* Zamedzí zachytávaniu kliknutí */
     }
     .hero-content {
       position: relative;
@@ -94,24 +96,16 @@
       margin-bottom: 20px;
       color: #fff;
     }
-    /* Pôvodný <p> bol zachovaný alebo môžete odstrániť, ak ho nechcete:
-    .hero-content p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      color: #ddd;
-      line-height: 1.6;
-    }
-    */
 
     /* ---- IKONY DOLE NAD VIDEOM ---- */
     .icons-over-video {
-      position: absolute;     /* absolútne voči hero sekcii */
-      bottom: 30px;          /* posun odspodu */
+      position: absolute;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
       gap: 40px;
-      z-index: 2;            /* musí byť nad overlayom a videom */
+      z-index: 2;
     }
     .icons-over-video img {
       width: 100px; 
@@ -131,9 +125,6 @@
       .hero-content h1 {
         font-size: 2rem;
       }
-      /* .hero-content p {
-        font-size: 1rem;
-      } */
       .icons-over-video {
         gap: 20px;
       }
@@ -146,7 +137,7 @@
 </head>
 <body>
 
-  <!-- ODKAZY VPRAVO (namiesto hornej lišty) -->
+  <!-- ODKAZY VPRAVO -->
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="strategies.html">Strategies</a>
@@ -156,14 +147,12 @@
 
   <!-- HERO SECTION S VIDEOM -->
   <section class="hero">
-    <!-- Upravte src, aby zodpovedalo vášmu súboru s videom -->
     <video id="bg-video" playsinline autoplay muted loop>
       <source src="background landing page.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="overlay"></div>
 
-    <!-- IKONY DOLE NAD VIDEOM -->
     <div class="icons-over-video">
       <a href="https://www.bybit.com/invite?ref=16MQN3" target="_blank">
         <img src="Bybit.png" alt="Bybit">
@@ -178,7 +167,6 @@
 
     <div class="hero-content">
       <h1>Backtested strategies and real-time tested bots</h1>
-      <!-- <p>Tu môže byť menší text, ak ho potrebujete.</p> -->
     </div>
   </section>
 
