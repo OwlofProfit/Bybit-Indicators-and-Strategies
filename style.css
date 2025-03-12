@@ -1,4 +1,4 @@
-/* RESET A ZÁKLADNÉ ŠTÝLY */
+/* RESET A ZÁKLADNÉ ŠTÝLY - ZOSTÁVAJÚ */
 html {
   box-sizing: border-box;
   overflow-x: hidden;
@@ -10,7 +10,7 @@ html {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #121212;
+  background-color: #121212; /* Zachované tmavé pozadie */
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -20,9 +20,119 @@ body {
   line-height: 1.6;
 }
 
-/* NADPISY */
+/* NAVBAR ALEBO HORNÁ LIŠTA
+   Ak potrebuješ "Twingate-like" top bar, pridaj si HTML pre nav 
+   napr. <nav class="top-nav"> a doň linky. Tu je ukážka. */
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #121212; /* môžeš zmeniť napr. #0e0e0e */
+  padding: 20px;
+}
+.top-nav .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+}
+.top-nav .nav-links a {
+  margin-right: 20px;
+  color: #ccc;
+  font-weight: 500;
+  text-decoration: none;
+}
+.top-nav .nav-links a:hover {
+  color: #fff;
+}
+.top-nav .cta-nav-buttons a {
+  margin-left: 15px;
+  padding: 8px 14px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.top-nav .cta-nav-buttons a:hover {
+  background-color: #333;
+}
+
+/* PRÍPADNÁ HORNÁ OZNAMOVACIA LIŠTA (ako Twingate) */
+.announcement-bar {
+  background-color: #A38DF2;  /* fialový odtieň, uprav podľa seba */
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 8px 0;
+}
+.announcement-bar a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* HERO SEKCIA (INŠPIROVANÁ TWINGATE)
+   Môžeš ju využiť namiesto pôvodnej banner-container 
+   alebo ju nechať obidve, podľa toho čo potrebuješ. */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 100px 20px 80px; /* uprav spacing, aby bol hero vyšší */
+  background-color: #121212;
+  /* ak chceš aj grid background, pridaj background-image */
+  background-image: url("images/grid-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+.hero h1 {
+  font-size: 3em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+.hero p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.hero-buttons a {
+  display: inline-block;
+  padding: 16px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+.btn-primary {
+  background-color: #F2FF0A; /* Nápadná žltá CTA farba */
+  color: #000;
+}
+.btn-primary:hover {
+  background-color: #d4e00a;
+}
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #F2FF0A;
+  color: #F2FF0A;
+}
+.btn-secondary:hover {
+  background-color: #F2FF0A;
+  color: #000;
+}
+
+/* PÔVODNÉ ŠTÝLY PRE NADPISY (DOLEZITÉ NECHAŤ) */
 h1 {
-  color: #4db8ff;
+  color: #4db8ff; /* ak to chceš zmeniť, môžeš, inak ponechaj */
   font-size: 2.5em;
   margin: 0.67em 0;
 }
@@ -38,27 +148,18 @@ h3 {
   margin: 15px 0;
 }
 
-.strategies-title {
-  text-align: center;
-  font-size: 2em;
-  color: #ffa07a;
-  margin: 0 0 40px;
-}
-
-/* STATUS ŠTÝLY */
+/* RÔZNE STATUSY */
 .status-break-even {
   color: #ffcc00;
 }
-
 .status-non-profitable {
   color: #ff3333;
 }
-
 .status-profitable {
   color: #00ff00;
 }
 
-/* KARTY */
+/* KARTY (PÔVODNÉ) */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -93,7 +194,9 @@ h3 {
   margin-bottom: 10px;
 }
 
-/* LOGÁ A BANNER */
+/* ... Zvyšné pôvodné .logo-small, .logo-large, .banner-container atď.
+   nechaj tak, len si skontroluj, či navzájom nekolidujú s .hero atď. */
+
 .logo-small {
   width: 150px;
   max-width: 100%;
@@ -120,11 +223,12 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 20%; /* PÔVODNÉ NASTAVENIE ZACHOVANÉ */
+  object-position: 50% 20%;
   max-width: 100%;
 }
 
-/* SEKCIE */
+/* ... */
+
 section {
   margin: 100px 0;
   padding: 0 20px;
@@ -133,7 +237,10 @@ section {
   margin-right: auto;
 }
 
-/* HOVER EFEKTY */
+/* EFEKTY, MODÁL, RESPONSIVE 
+   Tiež ponechaj, len skontroluj, či všetko funguje
+   alebo ľahko uprav. */
+
 .hover-effect {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   max-width: 100%;
@@ -144,7 +251,6 @@ section {
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
 }
 
-/* MODÁLNE OKNO */
 .modal {
   display: none;
   position: fixed;
@@ -177,7 +283,6 @@ section {
   line-height: 1;
 }
 
-/* RESPONZÍVNE MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   .card {
     flex-basis: 100%;
@@ -198,6 +303,18 @@ section {
 
   h2 {
     font-size: 1.75em;
+  }
+
+  /* Responzívny hero */
+  .hero h1 {
+    font-size: 2em;
+  }
+  .hero p {
+    font-size: 1em;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 
