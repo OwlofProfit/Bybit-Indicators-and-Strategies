@@ -1,0 +1,10 @@
+title: Owl of Profit
+navigation:
+  - name: Home
+    url: /
+  - name: Strategies
+    url: /strategies/
+  - name: Bots
+    url: /bots/
+  - name: NFT
+    url: /nft/
