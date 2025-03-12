@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Layout from "../src/layout/Layout";
 import PageBanner from "../src/layout/PageBanner";
 import { getNfts } from "../src/redux/actions/nfts";
-const Strategies = ({ getNfts, nfts }) => {
+const Collection = ({ getNfts, nfts }) => {
   useEffect(() => {
     getNfts();
   }, []);
@@ -12,13 +12,13 @@ const Strategies = ({ getNfts, nfts }) => {
     return type.split(" ").join("-");
   };
   return (
-    <Layout pageTitle={"Strategies"}>
-      <PageBanner pageName={"Strategies"} />
+    <Layout pageTitle={"Collection"}>
+      <PageBanner pageName={"Collection"} />
 
-      {/* Strategies Page */}
-      <div className="metaportal_fn_Strategiespage">
+      {/* Collection Page */}
+      <div className="metaportal_fn_collectionpage">
         <div className="container">
-          <div className="metaportal_fn_Strategies">
+          <div className="metaportal_fn_collection">
             {/* Filters */}
 
             {/* !Filters */}
@@ -73,4 +73,4 @@ const mapStateToProps = (state) => ({
   nfts: state.nfts.data,
 });
 
-export default connect(mapStateToProps, { getNfts })(Strategies);
+export default connect(mapStateToProps, { getNfts })(Collection);
