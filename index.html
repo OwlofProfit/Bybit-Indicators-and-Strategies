@@ -27,40 +27,30 @@
       text-decoration: none;
     }
 
-    /* TOP NAVIGATION */
-    .top-nav {
+    /* ---- ODKAZY VPRAVO (POD SEBOU, ZAOBLENÉ) ---- */
+    .nav-links {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #0e0e0e;
-      padding: 20px;
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    .logo-img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-      border-radius: 50%;  /* Okrúhle logo */
-      object-fit: cover;
-    }
-    .logo-text {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.4rem;
-      color: #fff;
+      flex-direction: column;
+      align-items: flex-end; /* zarovná text v rámci boxu doprava */
     }
     .nav-links a {
-      margin-right: 20px;
+      background-color: #222;
+      border-radius: 8px;
+      padding: 10px 20px;
       color: #ccc;
       font-weight: 500;
+      margin-bottom: 10px; /* medzera medzi jednotlivými odkazmi */
+      transition: background-color 0.3s ease;
     }
     .nav-links a:hover {
       color: #fff;
+      background-color: #333;
     }
 
-    /* HERO (VIDEO BACKGROUND) */
+    /* ---- HERO (VIDEO BACKGROUND) ---- */
     .hero {
       position: relative;
       width: 100%;
@@ -104,14 +94,16 @@
       margin-bottom: 20px;
       color: #fff;
     }
+    /* Pôvodný <p> bol zachovaný alebo môžete odstrániť, ak ho nechcete:
     .hero-content p {
       font-size: 1.2rem;
       max-width: 700px;
       color: #ddd;
       line-height: 1.6;
     }
+    */
 
-    /* IKONY DOLE NAD VIDEOM */
+    /* ---- IKONY DOLE NAD VIDEOM ---- */
     .icons-over-video {
       position: absolute;     /* absolútne voči hero sekcii */
       bottom: 30px;          /* posun odspodu */
@@ -134,23 +126,14 @@
       width: 100px; 
     }
 
-    /* FOOTER */
-    footer {
-      background-color: #111;
-      text-align: center;
-      color: #666;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 768px) {
       .hero-content h1 {
         font-size: 2rem;
       }
-      .hero-content p {
+      /* .hero-content p {
         font-size: 1rem;
-      }
+      } */
       .icons-over-video {
         gap: 20px;
       }
@@ -163,23 +146,17 @@
 </head>
 <body>
 
-  <!-- NAV - Home / Strategies / Bots / NFT -->
-  <nav class="top-nav">
-    <div class="logo-container">
-      <img src="favicon.png" alt="Owl of Profit Logo" class="logo-img">
-      <span class="logo-text">Owl of Profit</span>
-    </div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Strategies</a>
-      <a href="#">Bots</a>
-      <a href="#">NFT</a>
-    </div>
-  </nav>
+  <!-- ODKAZY VPRAVO (namiesto hornej lišty) -->
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="strategies.html">Strategies</a>
+    <a href="bots.html">Bots</a>
+    <a href="NFT.html">NFT</a>
+  </div>
 
   <!-- HERO SECTION S VIDEOM -->
   <section class="hero">
-    <!-- Video musí byť naozaj v rovnakom priečinku ako index.html -->
+    <!-- Upravte src, aby zodpovedalo vášmu súboru s videom -->
     <video id="bg-video" playsinline autoplay muted loop>
       <source src="background landing page.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -201,13 +178,9 @@
 
     <div class="hero-content">
       <h1>Backtested strategies and real-time tested bots</h1>
-      <p>Explore a wide range of strategies and automated bots thoroughly tested on real data.</p>
+      <!-- <p>Tu môže byť menší text, ak ho potrebujete.</p> -->
     </div>
   </section>
-
-  <footer>
-    &copy; 2025 Owl of Profit. All rights reserved.
-  </footer>
 
 </body>
 </html>
