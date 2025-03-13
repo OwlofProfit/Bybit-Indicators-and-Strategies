@@ -1,682 +1,1046 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior: smooth">
-  <head>
-    <title>MetaPortal - NFT Portfolio and Landing Page React Nextjs Template  </title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>Bybit Indicators and Strategies Research</title>
+  <link rel="stylesheet" href="style.css">
 
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon" /> -->
-    <!-- VENDOR CSS -->
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/bootstrap/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/font-awesome/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="./assets/vendor/animate-css/vivify.min.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9GWE8MYVH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C9GWE8MYVH');
+  </script>
+</head>
+<body>
+    <header>
+        <h1>Bybit Indicators and Strategies Research</h1>
+    </header>
 
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/light-gallery/css/lightgallery.css"
-    />
-    
-    <!-- JSTree (Folder Stewart) -->
-	<link rel="stylesheet" href="./assets/vendor/jstree/dist/themes/default/style.min.css">
+    <main>
+        <section class="center">
+            <div class="banner-container">
+                <img src="robot-trading-scene.png" alt="Trading Robot" class="banner">
+            </div>            
+            <h2>About Me</h2>
+            <p>Hi!</p>
+            <p>Owl of Profit welcomes you here!</p>
+            <p>
+                I’ve been focusing on <strong>crypto trading strategies</strong> with a particular interest in the <strong>Bybit market</strong>.
+                Over time, I’ve tested various indicators and strategy combinations to better understand how they perform under different market conditions.
+            </p>
+            <p>
+                This page is dedicated to sharing the <strong>results of my tests</strong>. Here, you’ll find insights into which indicators and strategies have shown promising outcomes.
+            </p>
+            <p>
+                Whether you’re exploring new trading ideas or simply curious about how certain strategies perform, this page provides a transparent look at the data and findings I’ve gathered.
+            </p>
+        </section>
 
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="./assets/css/site.min.css" />
+        <section class="center">
+            <h2>My Work</h2>
+            <p>
+                I focus on testing and analyzing crypto trading strategies specifically tailored for the Bybit market.
+                My work involves experimenting with a variety of indicators and their combinations. All strategies are tested on a real account
+                with real money, ensuring that the results reflect actual market conditions.
+            </p>
+        </section>
 
-    <!-- for demo only -->
-    <style>
-      .h2 {
-    color: #5cb65f;
-    font-weight: 400;font-size: 15px;
-    display: block;
-}
-      .img-responsive{
-        max-width: 100%;
-      }
-      .card .body {
-        font-size: 15px;
-      }
-      .main_features li {
-        padding: 5px 0;
-      }
-      .prettyprint {
-        color: #ffffff;
-      }
-      #Credits li {
-        line-height: 30px;
-      }
-      .lightGallery img {
-        border: 1px solid #484a4e;
-      }
-      .sm-logo {
-        width: 25px;
-      }
-      #main-content {
-        padding: 1rem;
-        box-sizing: border-box;
-      }      
-      div#wrapper {
-        overflow: hidden;
-      }
-    </style>
-  </head>
-  <body class="theme-green font-mulish ">
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-      <div class="loader">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-        <div class="bar4"></div>
-        <div class="bar5"></div>
-      </div>
+        <section class="center">
+            <h1 class="large-title">Tools I Use</h1>
+
+            <h3>TradingView</h3>
+            <p>
+                When brainstorming new strategies, I turn to TradingView for exploring new indicators and generating ideas.
+                It’s an essential tool for traders to visualize charts and indicators.
+            </p>
+            <a href="https://www.tradingview.com/pricing/?share_your_love=One_Eyed_Owl" target="_blank">
+                <img src="TradingView.png" alt="TradingView" class="hover-effect logo-small">
+            </a>
+
+            <h3>Bybit</h3>
+            <p>
+                Bybit is my preferred platform for trading and testing bots in real market conditions.
+            </p>
+            <a href="https://www.bybit.com/invite?ref=16MQN3" target="_blank">
+                <img src="Bybit.png" alt="Bybit" class="hover-effect logo-small">
+            </a>
+        </section>
+
+        <section class="center">
+            <h1 class="large-title">My Ko-Fi Account</h1>
+            <a href="https://ko-fi.com/owlofprofit" target="_blank">
+                <img src="Ko-fi.png" alt="Support My Work on Ko-Fi" class="hover-effect logo-large">
+            </a>
+            <p>
+                ☕ <strong>Support My Work</strong>
+            </p>
+            <p>
+                If you enjoy what I do, you can support me by buying me a coffee or exploring my exclusive trading bots!
+            </p>
+        </section>
+
+        <section class="strategy-section">
+            <h2 class="strategies-title">Strategies</h2>
+            <div class="cards-container">
+                <!-- Existing Cards -->
+                <div class="card" onclick="openModal(this)">
+                    <img src="SAR Strategy 1000PEPEUSDT.png" alt="SAR Strategy">
+                    <h3 class="status-break-even">SAR Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> SAR</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 304</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 33.88%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="EMA 9 + EMA 21 Strategy 1000PEPEUSDT.png" alt="EMA 9 + EMA 21 Strategy">
+                    <h3 class="status-non-profitable">EMA 9 + EMA 21 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> EMA 9, EMA 21</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 540</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 25.56%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="EMA 9 a 21 + ATR sl Strategy 1000PEPEUSDT.png" alt="EMA 9 a 21 + ATR sl  Strategy">
+                    <h3 class="status-non-profitable">EMA 9 a 21 + ATR sl  Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> EMA 9 + EMA 21 + ATR</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 541</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 23.66%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Ichimoku Cloud Strategy 1000PEPEUSDT.png" alt="Ichimoku Cloud Strategy">
+                    <h3 class="status-break-even">Ichimoku Cloud Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Ichimoku Cloud</p>
+                    <p><strong>Type of strategy:</strong> Ichimoku-based strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 328</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 32.62%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Keltner Channels + Momentum Strategy 1000PEPEUSDT.png" alt="Keltner Channels + Momentum Strategy">
+                    <h3 class="status-profitable">Keltner Channels + Momentum  Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Keltner Channels + Momentum</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 434</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 32.72%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="MACD Strategy 1000PEPEUSDT.png" alt="MACD Strategy">
+                    <h3 class="status-break-even">MACD Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> Yes</p>
+                    <p><strong>Indicator(s):</strong> MACD</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 896</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 37.05%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Volume Oscillator + Price Action Strategy 1000PEPEUSDT.png" alt="Volume Oscillator + Price Action Strategy">
+                    <h3 class="status-break-even">Volume Oscillator + Price Action Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Volume Oscillator + Price Action</p>
+                    <p><strong>Type of strategy:</strong> Price action strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 540</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 39.26%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="VWAP + MACD Strategy 1000PEPEUSDT.png" alt="VWAP + MACD Strategy">
+                    <h3 class="status-break-even">VWAP + MACD Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> VWAP + MACD</p>
+                    <p><strong>Type of strategy:</strong> Momentum-based strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 454</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 32.82%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Fractal 14 Strategy 1000PEPEUSDT.png" alt="Fractal 14 Strategy">
+                    <h3 class="status-non-profitable">Fractal 14 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Fractals period 14</p>
+                    <p><strong>Type of strategy:</strong> Fractal-based strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 528</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 41.67%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="MACD + SAR Strategy 1000PEPEUSDT.png" alt="MACD + SAR Strategy">
+                    <h3 class="status-break-even">MACD + SAR Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> MACD + SAR</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 739</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 42.76%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="SuperTrend + Stochastic Strategy 1000PEPEUSDT.png" alt="SuperTrend + Stochastic Strategy">
+                    <h3 class="status-break-even">SuperTrend + Stochastic Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> SuperTrend + Stochastic</p>
+                    <p><strong>Type of strategy:</strong> Trend-following strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 380</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 66.32%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="3 Line Strike Strategy (TheThirdFloor) 1000PEPEUSDT.png" alt="3 Line Strike Strategy">
+                    <h3 class="status-profitable">3 Line Strike Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> Patterns</p>
+                    <p><strong>Indicator(s):</strong> 3 Line Strike + Engulfing candles</p>
+                    <p><strong>Type of strategy:</strong> Pattern-based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 358</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 56.98%</p>
+                    <p><strong>Inspired by:</strong> TheThirdFloor</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Andean Oscillator Strategy (alexgrover) 1000PEPEUSDT.png" alt="Andean Oscillator Strategy">
+                    <h3 class="status-profitable">Andean Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Andean Oscillator + EMA 50</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 407</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 31.20%</p>
+                    <p><strong>Inspired by:</strong> alexgrover</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Commodity Channel Index Strategy 1000PEPEUSDT.png" alt="Commodity Channel Index Strategy">
+                    <h3 class="status-non-profitable">Commodity Channel Index Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> CCI 20</p>
+                    <p><strong>Type of strategy:</strong> Momentum-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 457</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 64.77%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="D Vortex Stregy 1000PEPEUSDT.png" alt="D Vortex Strategy">
+                    <h3 class="status-break-even">D Vortex Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Vortex Indicator + SMA 14</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1236</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 35.68%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="FVG Oscillator Strategy (OmegaTools) 1000PEPEUSDT.png" alt="FVG Oscillator Strategy">
+                    <h3 class="status-profitable">FVG Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> FVG + Volume + ATR</p>
+                    <p><strong>Type of strategy:</strong> Gap-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 829</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 36.91%</p>
+                    <p><strong>Inspired by:</strong> OmegaTools</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Optimized Trend Tracker Oscillator Strategy 1000PEPEUSDT (KivancOzbilgic).png" alt="Optimized Trend Tracker Oscillator Strategy">
+                    <h3 class="status-profitable">Optimized Trend Tracker Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> OTTO</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 408</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 42.40%</p>
+                    <p><strong>Inspired by:</strong> KivancOzbilgic</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="RSI Strategy 1000PEPEUSDT.png" alt="RSI Strategy">
+                    <h3 class="status-non-profitable">RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> RSI</p>
+                    <p><strong>Type of strategy:</strong> Momentum-based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 6086 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 53.38%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="MA 50 + MA 200 Strategy 1000PEPEUSDT ( 1 year).png" alt="MA 50 + MA 200 Strategy">
+                    <h3 class="status-break-even">MA 50 + MA 200 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> MA 50 + MA 200</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 3640 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 35.30%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Donchian Channels + Volume Strategy 1000PEPEUSDT (1 year).png" alt="Donchian Channels + Volume Strategy">
+                    <h3 class="status-non-profitable">Donchian Channels + Volume Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Donchian Channels + Volume</p>
+                    <p><strong>Type of strategy:</strong> Breakout and Volume Confirmation Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 10438 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 33.49%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="EMA 9 + EMA 21 + Stochastic RSI Strategy 1000PEPEUSDT (1 year).png" alt="EMA 9 + EMA 21 + Stochastic RSI Strategy">
+                    <h3 class="status-non-profitable">EMA 9 + EMA 21 + Stochastic RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> EMA 9 + EMA 21 + Stochastic RSI</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Momentum Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 148 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 43.92%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="HMA + RSI Strategy 1000PEPEUSDT (1 year).png" alt="HMA + RSI Strategy">
+                    <h3 class="status-non-profitable">HMA + RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> HMA + RSI</p>
+                    <p><strong>Type of strategy:</strong> Trend Reversal and Momentum Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1887 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 34.18%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="RSI + BB Strategy 1000PEPEUSDT (1 year).png" alt="RSI + BB Strategy">
+                    <h3 class="status-break-even">RSI + BB Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> RSI + BB</p>
+                    <p><strong>Type of strategy:</strong> Mean Reversion and Momentum Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 726 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 63.77%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="ATR + Pivot Points Strategy 1000PEPEUSDT (1 year).png" alt="ATR + Pivot Points Strategy">
+                    <h3 class="status-profitable">ATR + Pivot Points Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> ATR + Pivot Points</p>
+                    <p><strong>Type of strategy:</strong> Volatility-Based Support and Resistance Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 2094 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 49.57%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Tripple EMA + Fisher Transform Strategy 1000PEPEUSDT (1 year).png" alt="Tripple EMA + Fisher Transform Strategy">
+                    <h3 class="status-profitable">Tripple EMA + Fisher Transform Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Tripple EMA + Fisher Transform</p>
+                    <p><strong>Type of strategy:</strong> Trend Confirmation and Reversal Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 7440 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 32.41%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Chande Momentum Oscillator + BB Strategy 1000PEPEUSTD (1 year).png" alt="Chande Momentum Oscillator + BB Strategy">
+                    <h3 class="status-profitable">Chande Momentum Oscillator + BB Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Chande Momentum Oscillator + BB</p>
+                    <p><strong>Type of strategy:</strong> Momentum and Volatility Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 5327 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 65.05%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Zig Zag + Relative Vigor Index Strategy 1000PEPEUSDT (1 year).png" alt="Zig Zag + Relative Vigor Index Strategy">
+                    <h3 class="status-profitable">Zig Zag + Relative Vigor Index Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Zig Zag + Relative Vigor Index</p>
+                    <p><strong>Type of strategy:</strong> Trend Identification and Confirmation Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 136 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 41.18%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="EMA 12 + EMA 26 + MACD + RSI Strategy 1000PEPEUSDT (1 year).png" alt="EMA 12 + EMA 26 + MACD + RSI Strategy">
+                    <h3 class="status-profitable">EMA 12 + EMA 26 + MACD + RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> EMA 12 + EMA 26 + MACD + RSI</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Momentum Confirmation Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 556 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 35.97%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="BB + Stochastic Oscillator + ATR Strategy 1000PEPEUSDT (1 year).png" alt="BB + Stochastic Oscillator + ATR Strategy">
+                    <h3 class="status-non-profitable">BB + Stochastic Oscillator + ATR Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> BB + Stochastic Oscillator + ATR</p>
+                    <p><strong>Type of strategy:</strong> Volatility and Momentum-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 30 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 50%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Ichimoku Cloud + ADX + VWAP Strategy 1000PEPEUSDT (1 year).png" alt="Ichimoku Cloud + ADX + VWAP Strategy">
+                    <h3 class="status-profitable">Ichimoku Cloud + ADX + VWAP Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Ichimoku Cloud + ADX + VWAP</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Strength Confirmation Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1756 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 25.80%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="SAR + SuperTrend + Volume Oscillator Strategy 1000PEPEUSDT (1 year).png" alt="SAR + SuperTrend + Volume Oscillator Strategy">
+                    <h3 class="status-profitable">SAR + SuperTrend + Volume Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> SAR + SuperTrend + Volume Oscillator</p>
+                    <p><strong>Type of strategy:</strong> Trend and Momentum-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1287 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 35.90%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Scalper Crypto Strategy 1000PEPEUSDT (1 year) (exlux).png" alt="Scalper Crypto Strategy">
+                    <h3 class="status-non-profitable">Scalper Crypto Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> Patterns</p>
+                    <p><strong>Indicator(s):</strong> Custom candle pattern + Vortex Indicator + ATR</p>
+                    <p><strong>Type of strategy:</strong> Momentum and Volatility-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1243 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Take Profit (TP) and Stop Loss (SL) are set as percentages of the entry price, calculated using tplong and sllong values.</p>
+                    <p><strong>Strategy success (%):</strong> 39.90%</p>
+                    <p><strong>Inspired by:</strong> exlux</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Bollinger + RSI, Double Strategy v1.1 1000PEPEUSDT (1 year) (ChartArt).png" alt="Bollinger + RSI, Double Strategy v1.1 Strategy">
+                    <h3 class="status-break-even">Bollinger + RSI, Double Strategy v1.1 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Bollinger Bands + RSI + SMA + Standard Deviation</p>
+                    <p><strong>Type of strategy:</strong> Mean Reversion and Momentum Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1108 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 62.73%</p>
+                    <p><strong>Inspired by:</strong> ChartArt</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Bollinger Bands Filter Strategy 1000PEPEUSDT (1 year) (TradeChartist).png" alt="Bollinger Bands Filter Strategy">
+                    <h3 class="status-break-even">Bollinger Bands Filter Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Bollinger Bands + SMA + Standard Deviation</p>
+                    <p><strong>Type of strategy:</strong> Volatility Breakout Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 11033 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 30.54%</p>
+                    <p><strong>Inspired by:</strong> TradeChartist</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Davidova Strategy 1000PEPEUSDT (1 year).png" alt="Davidova Strategy">
+                    <h3 class="status-non-profitable">Davidova Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> SMA + EMA + Hull Moving Average + Support and Resistance Levels + Custom Candle Body Resistance Channel</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Support/Resistance-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 372 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 44.89%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Consolidation Zone Strategy 1000PEPEUSDT (1 year) (LonesomeTheBlue).png" alt="Consolidation Zone Strategy">
+                    <h3 class="status-non-profitable">Consolidation Zone Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> ZigZag + Support and Resistance Zones + Highest High and Lowest Low</p>
+                    <p><strong>Type of strategy:</strong> Breakout and Consolidation-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 14212 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 40.49%</p>
+                    <p><strong>Inspired by:</strong> LonesomeTheBlue</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Donchian Trend Ribbon Strategy 1000PEPEUSDT (1 year) (LonesomeTheBlue).png" alt="Donchian Trend Ribbon Strategy">
+                    <h3 class="status-non-profitable">Donchian Trend Ribbon Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Donchian Channels</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 13427 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 33.40%</p>
+                    <p><strong>Inspired by:</strong> LonesomeTheBlue</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Flawless Victory Strategy 1000PEPEUSDT (1 year) (Trebor_Namor).png" alt="Flawless Victory Strategy">
+                    <h3 class="status-profitable">Flawless Victory Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> RSI + MFI + Bollinger Bands + SMA + Standard Deviation + Machine Learning</p>
+                    <p><strong>Type of strategy:</strong> Mean Reversion and Momentum Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 3390 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Take Profit (TP) and Stop Loss (SL) are defined in versions 2 and 3 as percentages of the entry price, managed using strategy.exit.</p>
+                    <p><strong>Strategy success (%):</strong> 64.84%</p>
+                    <p><strong>Inspired by:</strong> Trebor_Namor</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="G-Channel Trend Detection Strategy 1000PEPEUSDT (1 year) (jaggedsoft).png" alt="G-Channel Trend Detection Strategy">
+                    <h3 class="status-break-even">G-Channel Trend Detection Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> G-Channel + MA</p>
+                    <p><strong>Type of strategy:</strong> Trend Detection and Reversal Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 7560 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 28.77%</p>
+                    <p><strong>Inspired by:</strong> jaggedsoft</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="WaveTrend Oscillator Strategy 1000PEPEUSDT (1 year) (LazyBear).png" alt="WaveTrend Oscillator Strategy">
+                    <h3 class="status-break-even">WaveTrend Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> WaveTrend Oscillator + RSI + EMA + SMA</p>
+                    <p><strong>Type of strategy:</strong> Momentum and Oscillator-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 2340 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 63.72%</p>
+                    <p><strong>Inspired by:</strong> LazyBear</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="kyle algo v1 Strategy 1000PEPEUSTD (1 year) (kylealgo).png" alt="kyle algo v1 Strategy">
+                    <h3 class="status-non-profitable">kyle algo v1 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Keltner Channel + SuperTrend + EMA + ATR</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Volatility-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 13133 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 33.02%</p>
+                    <p><strong>Inspired by:</strong> kylealgo</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Mega crypto bot Strategy 1000PEPEUSDT (1 year) (elmegatrader).png" alt="Mega crypto bot Strategy">
+                    <h3 class="status-non-profitable">Mega crypto bot Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Repainting scam</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> SMA + EMA + HMA + Support and Resistance Levels + Custom Candle Body Resistance Channel + Crossover/ Crossunder</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Volatility-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 374 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 98.93%</p>
+                    <p><strong>Inspired by:</strong> elmegatrader</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Nadaraya Watson non repainting Strategy 1000PEPEUSDT (1 year) (Lupown).png" alt="Nadaraya Watson Strategy">
+                    <h3 class="status-non-profitable">Nadaraya Watson Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Nadaraya-Watson Estimator + ATR  + Rate of Change + Crossover/ Crossunder</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Volatility-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 2906 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 64.11%</p>
+                    <p><strong>Inspired by:</strong> Lupown</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Powertrend + Volume Range Filter Strategy 1000PEPEUSTD (1 year) (wbburgin).png" alt="Powertrend + Volume Range Filter Strategy">
+                    <h3 class="status-profitable">Powertrend + Volume Range Filter Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> Volume + Smooth Range + ADX + High/Low Trend Follow Filter + VWMA + Crossover/Crossunder</p>
+                    <p><strong>Type of strategy:</strong> Trend-Following and Volume-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 4339 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 36.05%</p>
+                    <p><strong>Inspired by:</strong> wbburgin</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="BB 20 + MA 20 Strategy 1000PEPEUSDT (1 year).png" alt="BB 20 + MA 20 Strategy">
+                    <h3 class="status-non-profitable">BB 20 + MA 20 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> SMA + EMA + BB + Standard Deviation</p>
+                    <p><strong>Type of strategy:</strong> Mean-reversion with trend confirmation Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 396 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 22.47%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="EMA 12 + EMA 26 + MACD Strategy 1000PEPEUSDT (1 year).png" alt="EMA 12 + EMA 26 + MACD Strategy">
+                    <h3 class="status-non-profitable">EMA 12 + EMA 26 + MACD Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> EMA 12 + EMA 26 + MACD</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 18645 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 34.23%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Fibonacci Retracement + Pivot Points + RSI Strategy 1000PEPEUSDT (1 year).png" alt="Fibonacci Retracement + Pivot Points + RSI Strategy">
+                    <h3 class="status-profitable">Fibonacci Retracement + Pivot Points + RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Fibonacci Retracement + Pivot Points + RSI</p>
+                    <p><strong>Type of strategy:</strong> Mean-reversion and Support/Resistance Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 728 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 61.95%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Ichimoku Cloud + ATR Strategy 1000PEPEUSDT (1 year).png" alt="Ichimoku Cloud + ATR Strategy">
+                    <h3 class="status-break-even">Ichimoku Cloud + ATR Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Ichimoku Cloud + ATR</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 4215 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 54.71%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="MA 50 + MA 200 + RSI 14 Strategy 1000PEPEUSDT (1 year).png" alt="MA 50 + MA 200 + RSI 14 Strategy">
+                    <h3 class="status-profitable">MA 50 + MA 200 + RSI 14 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> MA 50 + MA 200 + RSI 14</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 3640 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 59.07%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="SuperTrend + Stochastic Oscillator Strategy 1000PEPEUSDT (1 year).png" alt="SuperTrend + Stochastic Oscillator Strategy">
+                    <h3 class="status-profitable">SuperTrend + Stochastic %K/%D Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> SuperTrend + Stochastic Oscillator</p>
+                    <p><strong>Type of strategy:</strong> Trend-following and Oscillator-based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 576 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 48.44%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Zig zag + Fractals + SAR Strategy 1000PEPEUSDT (1 year).png" alt="Zig zag + Fractals + SAR Strategy">
+                    <h3 class="status-non-profitable">Zig zag + Fractals + SAR Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> ZigZag + Fractals + Parabolic SAR</p>
+                    <p><strong>Type of strategy:</strong> Reversal Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 1353 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 31.63%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Keltner Channel + RSI Strategy 1000PEPEUSDT (1 year).png" alt="Keltner Channel + RSI Strategy">
+                    <h3 class="status-break-even">Keltner Channel + RSI Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Keltner Channel + RSI</p>
+                    <p><strong>Type of strategy:</strong> Mean Reversion Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 40 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 52.50%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="DMI + ADX Strategy 1000PEPEUSDT (1 year).png" alt="DMI + ADX Strategy">
+                    <h3 class="status-non-profitable">DMI + ADX Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> DMI + ADX</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 7064 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 34.31%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Chande Momentum Oscillator + BB (B) Strategy 1000PEPEUSDT (1 year).png" alt="Chande Momentum Oscillator + BB (%B) Strategy">
+                    <h3 class="status-break-even">Chande Momentum Oscillator + BB (%B) Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Chande Momentum Oscillator + BB %B</p>
+                    <p><strong>Type of strategy:</strong> Momentum-based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 3055 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 51.29%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Zig Zag + Williams R Strategy 1000PEPEUSDT (1 year).png" alt="Zig Zag + Williams %R Strategy">
+                    <h3 class="status-break-even">Zig Zag + Williams %R Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> YES</p>
+                    <p><strong>Indicator(s):</strong> Zig Zag + Williams %R</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy combined with momentum</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 6195 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 36.69%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Price Action Channel Strategy 1000PEPEUSDT (1 year) (JustUncleL).png" alt="Price Action Channel Strategy">
+                    <h3 class="status-break-even">Price Action Channel Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Break-even</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> CCI + RSI + MACD + EMA + SMA</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 514 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 38.13%</p>
+                    <p><strong>Inspired by:</strong> JustUncleL</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Q-Trend Strategy 1000PEPEUSDT (1 year) (tarasenko).png" alt="Q-Trend Strategy">
+                    <h3 class="status-non-profitable">Q-Trend Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> ATR + EMA + Highest/Lowest Price over Trend Period</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 48101 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 34.02%</p>
+                    <p><strong>Inspired by:</strong> tarasenko</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Scalping PullBack Tool Strategy 1000PEPEUSDT (1 year) (JustUncleL).png" alt="Scalping PullBack Tool Strategy">
+                    <h3 class="status-non-profitable">Scalping PullBack Tool Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> AEMA + PAC + Fractals</p>
+                    <p><strong>Type of strategy:</strong> Pullbacks Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 17370 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 13.87%</p>
+                    <p><strong>Inspired by:</strong> JustUncleL</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="T3MA Ribbon R1 Strategy 1000PEPEUSDT (1 year) (JustUncleL).png" alt="T3MA Ribbon R1 Strategy">
+                    <h3 class="status-profitable">T3MA Ribbon R1 Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> custom TEMA</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 66321 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 32.36%</p>
+                    <p><strong>Inspired by:</strong> JustUncleL</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Ultimate Moving Average Strategy 1000PEPEUSDT (1 year) (ChrisMoody).png" alt="Ultimate Moving Average Strategy">
+                    <h3 class="status-non-profitable">Ultimate Moving Average Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> SMA + EMA + WMA + HMA + VWMA + RMA + TEMA</p>
+                    <p><strong>Type of strategy:</strong> Trend-following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 13337 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 33.64%</p>
+                    <p><strong>Inspired by:</strong> ChrisMoody</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="UT Bot Alerts Strategy (1 year) (QuantNomad).png" alt="UT Bot Alerts Strategy">
+                    <h3 class="status-non-profitable">UT Bot Alerts Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> ATR + EMA</p>
+                    <p><strong>Type of strategy:</strong> Breakout Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 77019 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 35.16%</p>
+                    <p><strong>Inspired by:</strong> QuantNomad</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Volume Flow Strategy 1000PEPEUSDT (1 year) (LazyBear).png" alt="Volume Flow Strategy">
+                    <h3 class="status-non-profitable">Volume Flow Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Not Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> VFI + EMA</p>
+                    <p><strong>Type of strategy:</strong> Volume-Based and Trend-Following Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 118994 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 38.40%</p>
+                    <p><strong>Inspired by:</strong> LazyBear</p>
+                </div>
+
+                <div class="card" onclick="openModal(this)">
+                    <img src="Volume Oscillator + Price Oscillator Strategy 1000PEPEUSDT (1 year).png" alt="Volume Oscillator + Price Oscillator Strategy">
+                    <h3 class="status-profitable">Volume Oscillator + Price Oscillator Strategy</h3>
+                    <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
+                    <p><strong>Status:</strong> Profitable</p>
+                    <p><strong>On Bybit:</strong> NO</p>
+                    <p><strong>Indicator(s):</strong> PO + VO</p>
+                    <p><strong>Type of strategy:</strong> Momentum-Based Strategy</p>
+                    <p><strong>Trading Time Frame:</strong> 1M</p>
+                    <p><strong>Number of Trades:</strong> 65483 (1 year)</p>
+                    <p><strong>TP/SL:</strong> Crossover</p>
+                    <p><strong>Strategy success (%):</strong> 45.78%</p>
+                    <p><strong>Inspired by:</strong> SELF MADE</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modal-image" class="modal-content" alt="Strategy Image">
     </div>
 
-  
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-
-    <div id="wrapper">
- 
-
-      <div id="left-sidebar" class="sidebar">
-        <div class="navbar-brand">
-            <!-- <a href="javascript:void(0);">
-                <img src="./assets/logo.png" alt="MetaPortal  Logo" class="img-fluid sm-logo" /><span>MetaPortal </span>
-            </a> -->
-            <a href="javascript:void(0);" class="brand-logo d-flex align-items-center">
-             <!-- <img src="./assets/logo.png" alt="" > -->
-             <!-- <div style="    margin-left: 20px;
-              max-width: 120px;
-              margin-top: 5px;
-              font-size: 38px;
-              color: #000;     font-weight: bold;" class="brand-title">MetaPortal </div>
-            </a> -->
-          <button
-            type="button"
-            class="btn-toggle-offcanvas btn btn-sm float-right"
-          >
-            <i class="lnr lnr-menu fa fa-chevron-circle-left"></i>
-          </button>
-        </div>
-        <div class="sidebar-scroll">
-          <div class="user-account">
-           
-            <div class="dropdown">
-              <span>Welcome,</span>
-              <a
-                ><strong>MetaPortal </strong></a
-              >
-            </div>
-          </div>
-          <nav id="left-sidebar-nav" class="sidebar-nav">
-            <ul id="main-menu" class="metismenu">
-              <li class="active">
-                <a href="#documenter_cover"
-                  ><i class="icon-home"></i><span>Start</span></a
-                >
-              </li>
-              <li>
-                <a href="#features"
-                  ><i class="icon-star"></i><span>Features</span></a
-                >
-              </li>
-              <li>
-                <a href="#react_js"
-                  ><i class="icon-tag"></i><span>React.js</span></a
-                >
-              </li>
-              <li>
-                <a href="#main_content"
-                  ><i class="icon-arrow-right"></i><span>Main Content</span></a
-                >
-              </li>
-                <li>
-                    <a href="#create_page"><i class="icon-plus"></i><span>Create a Page</span></a>
-                </li>
-              <li>
-                <a href="#folder_structure"
-                  ><i class="icon-folder-alt"></i
-                  ><span>Folder Structure</span></a
-                >
-              </li>
-              <li>
-                <a href="#Credits"
-                  ><i class="icon-like"></i><span>Credits</span></a
-                >
-              </li>
-              <li>
-                <a href="#layout"
-                  ><i class="icon-star"></i><span>Layout</span></a
-                >
-              </li>
-              <li>
-                <a href="#mail"
-                  ><i class="icon-star"></i><span>Mail</span></a
-                >
-              </li>
-
-              <li>
-                <a href="#thank_you"
-                  ><i class="icon-heart"></i><span>THANK YOU!</span></a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      <div id="main-content">
-        <div class="block-header">
-          <div class="row clearfix">
-            <div class="col-md-6 col-sm-12">
-              <h1>Documentation</h1>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">MetaPortal  </a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Documentation
-                  </li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-md-6 col-sm-12 text-right hidden-xs">
-             <!--  <a
-                href="javascript:void(0);"
-                class="btn btn-sm btn-primary btn-round"
-                title=""
-                >Create Campaign</a
-              > -->
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="row clearfix">
-            <div class="col-sm-12">
-              <div class="card" id="documenter_cover">
-                <div class="body">
-                  <h4 class="mb-3">
-                    MetaPortal - NFT Portfolio and Landing Page React Nextjs Template  
-                  </h4>
-                  <p>
-                    MetaPortal  is a one page style personal portfolio template that can be used to build your personal portfolio website. You can choose MetaPortal  to build your online presence. It is very important to have a personal portfolio at current age. In your professional career you must need to have a personal portfolio. MetaPortal  is a great template to build your personal portfolio using MetaPortal .
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="card" id="features">
-                <div class="header">
-                  <h2>Main Features</h2>
-                  
-                </div>
-                <div class="body">
-					<div class="row">
-						<div class="col-lg-6 col-md-6">
-						 <ul class="main_features">
-              <li>Develop with <a href="https://nextjs.org/" target="_blank">NextJs</a></li> 
-               
-           
-           <li>Fully Responsive</li>
-         <li>Ready to used widget</li>
-       
-         
-         <li>Detailed Documentation</li>
-            </ul>
-						</div>
-					</div>
-				</div>
-              </div>
-            </div>
-
-            <div class="col-sm-12">
-              <div class="card" id="react_js">
-                <div class="header">
-                  <h2>
-                    React.JS Installation & Setup
-                    <small
-                      >A JavaScript library for building user interfaces.</small
-                    >
-                  </h2>
-                </div>
-                <div class="body">
-                  <p>
-                    <strong>Installing</strong><br />
-                    <p>Make sure if <code>NODEJS</code> is installed on your computer</p>
-                    Run <code>npm install -g create-react-app</code>
-                    command from your teminal to install React Globally.
-                  </p>
-                  <p>
-                    <strong>Install npm :-</strong><br /> Run
-                    <code>npm install</code> command from your project
-                    directory. It will create 'node_module' folder in this all
-                    dependency files will be install with this command.
-                  </p>
-                  <p>
-                    <strong>Run Project :-</strong><br /> Run
-                    <code>npm run dev</code> command from your project directory.
-                    With is command file will be compiled and it will be loaded
-                    on local server `http://localhost:3000`.
-                  </p>
-                  <p>
-                    <strong>Production Build :-</strong><br /> Run
-                    <code>npm run build</code> Builds the app for production to
-                    the `build` folder. It correctly bundles React in production
-                    mode and optimizes the build for the best performance.
-                  </p>
-                  <p>
-                    <strong>Further help :-</strong><br /> To get more help on the
-                    nextjs.js checkout
-                    <a href="https://nextjs.org/">nextjs</a>
-                  </p>
-                  <p>
-                    <strong>Note:</strong> You can learn more in the
-                    <a
-                      href="https://github.com/vercel/next.js"
-                      >Create Next App Documentation</a
-                    >. To learn Next, check out the
-                    <a href="https://nextjs.org/">Next Documentation</a>.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-              <div class="card" id="main_content">
-                <div class="header">
-                  <h2>Main Content</h2>
-                  
-                </div>
-                <h5>_app.js Structure</h5>
-                <div class="body">
-<pre class="prettyprint lang-html linenums">
-import '../styles/globals.css'
-function MyApp({ Component, pageProps }) {
-  return &lt;Component {...pageProps} />
-}
-export default MyApp</pre>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-12">
-				<div class="card" id="create_page">
-						<div class="header">
-							<h2>Create a Page<h5>How to create a custom page</h5></h2>
-						</div>
-						<div class="body">
-							<p>1. Create page component <code>pages\MyPage.js</code></p>
-							<pre class="prettyprint lang-html linenums">
-import React from "react";
-
-export function MyPage() {
-  return(
-   &lt;h1&gt;Hello!&lt;/h1&gt;
-  ) 
-} 							
-						</pre>
-					</div>
-				</div>
-			</div>
-            <div class="col-sm-12">
-				<div class="card" id="folder_structure">
-					<div class="header"><h2>Folder Structure</h2>
-						<ul class="header-dropdown dropdown">
-							<li><a href="javascript:void(0);" class="full-screen"><i class="icon-frame"></i></a></li>
-							<li class="dropdown">
-								<a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"
-									aria-haspopup="true" aria-expanded="false">
-								</a>
-								<ul class="dropdown-menu">
-									<li><a href="javascript:void(0);">Action</a></li>
-									<li><a href="javascript:void(0);">Another Action</a></li>
-									<li><a href="javascript:void(0);">Something else</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<h5>Folder Directories</h5>
-					<div class="body">
-					<!-- Folder Directories -->
-						<section class="app-brief">
-							<div class="left-align">
-								<div class="section-header">
-									<!-- <h2 class="dark-text">Folder Directories - </h2> -->
-								</div>
-								<div id="dz_tree" class="tree-demo">
-									<ul>
-										<li data-jstree='{ "opened" : true }'>public
-											<ul>
-                        
-												<li data-jstree='{ "selected" : false }'>css</li>
-												<li data-jstree='{ "selected" : false }'>demo</li>
-												<li data-jstree='{ "selected" : false }'>fonts</li>
-												<li data-jstree='{ "selected" : false }'>img</li>
-											
-											</ul>
-										</li>	
-										<li data-jstree='{ "opened" : true }'>src
-											<ul>
-												<li data-jstree='{ "selected" : false }'>components
-                          <ul>
-                            <li data-jstree='{ "type" : "file" }'>About.js</li>
-                            <li data-jstree='{ "type" : "file" }'>AnimatedText.js</li>
-                            <li data-jstree='{ "type" : "file" }'>Contact.js</li>
-                            <li data-jstree='{ "type" : "file" }'>Home.js</li>
-                            <li data-jstree='{ "type" : "file" }'>Blog.js</li>
-                            <li data-jstree='{ "type" : "file" }'>BlogPopup.js</li>
-                            <li data-jstree='{ "type" : "file" }'>Work.js</li>
-                            <li data-jstree='{ "type" : "file" }'>WorkSideBar.js</li>
-                           </ul>
-												</li>
-												<li data-jstree='{ "selected" : true }'>layouts
-                          <ul>
-                             <li data-jstree='{ "type" : "file" }'>Header.js</li>
-                             <li data-jstree='{ "type" : "file" }'>Layouts.js</li>
-                             <li data-jstree='{ "type" : "file" }'>MobileHeader.js</li>
-                             <li data-jstree='{ "type" : "file" }'>BackMobile.js</li>
-                             <li data-jstree='{ "type" : "file" }'>PreLoader.js</li>
-                             <li data-jstree='{ "type" : "file" }'>Switcher.js</li>
-                            </ul>
-                        </li>
-											
-                      <li data-jstree='{ "type" : "file" }'>useClickOutside.js</li>
-                      <li data-jstree='{ "type" : "file" }'>useWindowSize.js</li>
-                      </ul>
-                      
-										</li>
-                    <li data-jstree='{ "selected" : false }'>pages
-                      <ul>
-                        <li data-jstree='{ "type" : "file" }'>index.js</li>
-                      </ul>
-                    </li>
-										<li data-jstree='{ "type" : "file" }'>package.json</li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-            
-            
-            <div class="col-sm-12">
-              <div class="card" id="Credits">
-                <div class="header">
-                  <h2>Credits</h2>
-                  
-                </div>
-                <div class="body">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                      <ul>
-                       
-                        <li>
-                         Nextjs
-                          <a
-                            href="https://nextjs.org/"
-                            class="text-warning"
-                            >Click to See</a
-                          >
-                        </li>
-                        <li>
-                          Google fonts are used in the template.
-                          <a
-                            href="https://fonts.google.com/"
-                            class="text-warning"
-                            >Click to see</a
-                          >
-                        </li>
-                        <li>
-                          All Images are used:
-                          <a href="https://www.pexels.com/" class="text-warning"
-                            >Pexels.com</a
-                          >
-                        </li>
-                       
-                        <li>Emailjs
-                          <a href="https://www.emailjs.com/" target="_blank" class="text-warning"
-                            >Click to See</a
-                          >
-                        </li>
-                        
-                      </ul>
-                    </div>
-                    <div class="col-lg-6 col-md-12">
-                      <ul>
-                        <li>emailjs-com
-                          <a href="https://www.npmjs.com/package/emailjs-com" target="_blank" class="text-warning"
-                            >Click to See</a
-                          >
-                        </li>
-                      
-                        <li>React bootstrap
-                          <a href="https://react-bootstrap.github.io/" target="_blank" class="text-warning"
-                            >Click to See</a
-                          >
-                        </li>
-                      
-                        <li>react-moving-text
-                          <a href="https://www.npmjs.com/package/react-moving-text" target="_blank" class="text-warning"
-                            >Click to See</a
-                          >
-                        </li>
-                      
-                       
-                        
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-sm-12" id="layout">
-                <div class="card" >
-                    <div class="header">
-                        <h2>Layout 
-                            <small>Layout is controlled by settings object LayoutSettings inside src/context/ThemeContext.js</small>
-                        </h2>
-                    </div>
-                    <div class="body">
-                        <p>
-                            <strong>Layout.js</strong>
-                        </p> 
-<pre>
-  import Head from "next/head";
-  import { Fragment, useContext, useEffect } from "react";
-  import ColorContext from "../context/colorContext";
-  import NavContext from "../context/navContext";
-  import useWindowSize from "../useWindowSize";
-  import BackMobile from "./BackMobile";
-  import Header from "./Header";
-  import Switcher from "./Switcher";
-  
-  const Layouts = ({ children, bodyCls, extraPage, light }) => {
-    useEffect(() => {
-      document.querySelector("body").classList = bodyCls
-        ? bodyCls
-        : "dark fullscreendark";
-    }, []);
-    const { changeMobileMenu, mobileMenu } = useContext(NavContext);
-    const { color } = useContext(ColorContext);
-    const { width } = useWindowSize();
-    useEffect(() => {
-      if (width > 1025) {
-        changeMobileMenu(false);
-      }
-    }, [width]);
-    return (
-      &lt;Fragment>
-        &lt;Head>
-          &lt;link
-            type="text/css"
-            media="all"
-            href={`css/skins/${color}.css`}
-            rel="stylesheet"
-          />{" "}
-        &lt;/Head>
-        &lt;div className="page animated" style={{ animationDuration: "500ms" }}>
-          &lt;Switcher />
-          {/* Header Starts */}
-          {!extraPage && &lt;Header light={light} />}
-          {/* Main Content Starts */}{" "}
-          {extraPage ? (
-            children
-          ) : (
-            &lt;main
-              id="main"
-              className={`${width &lt; 1025 ? (mobileMenu ? "open" : "") : ""}`}
-            >
-              {/* Back To Home Starts [ONLY MOBILE] */}
-              &lt;BackMobile
-                changeMobileMenu={changeMobileMenu}
-                mobileMenu={mobileMenu}
-              />
-              {children}
-            &lt;/main>
-          )}
-        </div>{" "}
-      </Fragment>
-    );
-  };
-  export default Layouts;
-  
-</pre>
-
-                    </div>
-                </div>    
-            </div>            
-            <div class="col-sm-12" id="mail">
-                <div class="card" >
-                  <a class="h2 mt-4" href="https://www.emailjs.com/" target="_blank" rel="noopener noreferrer">1. EmailJs</a>
-                <img class="img-fluid" src="./assets/images/mail/1.png" alt="">
-                <a class="h2 mt-4" href="#" >2.</a>
-                <img class="img-fluid" src="./assets/images/mail/2.png" alt="">
-                <a class="h2 mt-4" href="#" >3. </a>
-                <img class="img-fluid" src="./assets/images/mail/3.png" alt="">
-                <a class="h2 mt-4" href="#" >4. </a>
-                <img class="img-fluid" src="./assets/images/mail/4.png" alt="">      
-                <a href="#" class="h2 mt-4">Video reference </a>
-                <iframe width="100%" height="720" src="https://www.youtube.com/embed/4WFSVE9R3EE" title="REACT JS BEGINNERS EMAILJS INTEGRATION" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          
-                </div>    
-
-            </div>            
-            
-           
-         
-          
-            
-            <div class="col-sm-12">
-              <div class="card" id="thank_you">
-                <div class="header">
-                  <h2>Thank You!</h2>
-                  
-                </div>
-                <div class="body">
-                  <p>
-                    Once again, thank you so much for purchasing this template.
-                    As I said at the beginning, I&#39;d be glad to help you if
-                    you have any questions relating to this template.
-                  </p>
-                  <p>
-                    <strong>REGULAR SUPPORT</strong> : You have in template
-                    support if you face any issue with the usage of it then you
-                    can contact us on below Email ID.
-                  </p>
-                  <p>
-                    <strong>EXTENDED SUPPORT</strong> : Development it is
-                    chargeable according to your requirement. For that you need
-                    to mail us your requirement on below Email ID.
-                  </p>
-                  <p>
-                    <strong>COST OF SERVICE</strong> : Depends on the hours
-                    required. But as you are already using our template we have
-                    discounted rates for our template customer.
-                  </p>
-                  <p>
-                    <strong>EXTENDED LICENSE</strong> : With the Extended
-                    Support we also include Extended License. So you save much
-                    more with your investment than you will with purchasing
-                    Regular License and later buying Extended one + Development
-                    cost.
-                  </p>
-                  <p>
-                    You will get a quick reply from our team and feel free to
-                    contact us. We don’t charge for requirement discussion so
-                    don’t worry.
-                  </p>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Javascript -->
-    <script src="./assets/bundles/libscripts.bundle.js"></script>
-    <script src="./assets/bundles/vendorscripts.bundle.js"></script>
-
-    <script src="./assets/bundles/lightgallery.bundle.js"></script>
-    <!-- Light Gallery Plugin Js -->
-
-    <script src="./assets/bundles/mainscripts.bundle.js"></script>
-    
-    <!-- Folder onClick -->
-	<script src="./assets/vendor/jstree/dist/jstree.min.js"></script>
-
-    <!-- <script>
-      <!-- $(".metismenu li").click(function () { -->
-        <!-- var $this = $(this); -->
-        <!-- if (!$this.is("active")) { -->
-          <!-- $(".metismenu li").removeClass("active").removeData("top"); -->
-          <!-- $this.addClass("active").data("top", $this.offset().top); -->
-        <!-- } -->
-      <!-- }); -->
-    </script> -->
-    <script>
-		// prettyPhoto
-		jQuery(document).ready(function(){
-			
-			$(".full-height").css("height", $(window).height());
-			
-			$("#dz_tree").jstree({
-				"core": {
-					"themes": {
-						"responsive": false
-					}
-				},
-				"types": {
-					"default": {
-						"icon": "fa fa-folder"
-					},
-					"file": {
-						"icon": "fa fa-file-text"
-					}
-				},
-				"plugins": ["types"]
-			});
-			$("#dz_tree_1").jstree({
-				"core": {
-					"themes": {
-						"responsive": false
-					}
-				},
-				"types": {
-					"default": {
-						"icon": "fa fa-folder"
-					},
-					"file": {
-						"icon": "fa fa-file-text"
-					}
-				},
-				"plugins": ["types"]
-			});
-		});
-	</script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
