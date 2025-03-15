@@ -2,6 +2,7 @@
 html {
   box-sizing: border-box;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 *, *:before, *:after {
@@ -9,8 +10,8 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #0a0a0a;
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -23,19 +24,21 @@ body {
 /* NADPISY */
 h1 {
   color: #4db8ff;
-  font-size: 2.5em;
+  font-size: 3em;
   margin: 0.67em 0;
+  text-shadow: 0 0 10px rgba(77, 184, 255, 0.5);
 }
 
 h2 {
   color: #ff80ff;
-  font-size: 2em;
-  margin: 20px 0;
+  font-size: 2.5em;
+  margin: 30px 0;
+  text-shadow: 0 0 10px rgba(255, 128, 255, 0.5);
 }
 
 h3 {
-  font-size: 1.5em;
-  margin: 15px 0;
+  font-size: 1.8em;
+  margin: 20px 0;
 }
 
 .strategies-title {
@@ -52,6 +55,12 @@ h3 {
 
 .status-non-profitable {
   color: #ff3333;
+  filter: blur(1px);
+  transition: filter 0.3s ease;
+}
+
+.status-non-profitable:hover {
+  filter: blur(0);
 }
 
 .status-profitable {
@@ -70,20 +79,22 @@ h3 {
 }
 
 .card {
-  background-color: #1e1e1e;
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
   border: 1px solid #00aaff;
-  border-radius: 10px;
+  border-radius: 15px;
   flex: 1 1 300px;
   max-width: 100%;
-  padding: 15px;
+  padding: 20px;
   text-align: left;
-  transition: transform 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
   margin: 0 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 170, 255, 0.2);
 }
 
 .card img {
@@ -91,6 +102,18 @@ h3 {
   height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.card[onclick] img {
+  transition: filter 0.3s ease;
+}
+
+.card[onclick]:has(.status-non-profitable) img {
+  filter: blur(2px);
+}
+
+.card[onclick]:has(.status-non-profitable):hover img {
+  filter: blur(0);
 }
 
 /* LOGÁ A BANNER */
@@ -109,19 +132,25 @@ h3 {
 .banner-container {
   position: relative;
   width: 100%;
-  height: 80vh;
+  height: 90vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
 }
 
 .banner {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 20%; /* PÔVODNÉ NASTAVENIE ZACHOVANÉ */
-  max-width: 100%;
+  object-position: 50% 20%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.banner:hover {
+  opacity: 1;
 }
 
 /* SEKCIE */
@@ -177,6 +206,85 @@ section {
   line-height: 1;
 }
 
+/* PRICING SEKCIA */
+.pricing-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.pricing-card {
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+  border: 2px solid #00aaff;
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 170, 255, 0.1);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 170, 255, 0.2);
+}
+
+.price {
+  font-size: 4em;
+  color: #00ff00;
+  margin: 20px 0;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.price span {
+  font-size: 0.4em;
+  vertical-align: super;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.features-list li {
+  margin: 15px 0;
+  padding-left: 30px;
+  position: relative;
+}
+
+.features-list li:before {
+  content: "✓";
+  color: #00ff00;
+  position: absolute;
+  left: 0;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #00aaff 0%, #0077ff 100%);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 20px 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);
+}
+
 /* RESPONZÍVNE MEDIA QUERIES */
 @media screen and (max-width: 768px) {
   .card {
@@ -215,4 +323,107 @@ section {
     font-size: 30px;
     margin: 0 20px;
   }
+}
+
+/* BLURRED SECTION STYLES */
+.blurred-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-card .blurred-content {
+    filter: blur(4px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.preview-card img {
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+}
+
+.preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.preview-text {
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    border: 1px solid #00aaff;
+    text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+.preview-card {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.preview-card:hover {
+    opacity: 1;
+}
+
+.strategy-section .card {
+    position: relative;
+    background: rgba(42, 42, 42, 0.8);
+}
+
+.strategy-section .card img {
+    opacity: 0.5;
+    filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.strategy-section .card p,
+.strategy-section .card h3 {
+    filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.strategy-section.access-granted .card img,
+.strategy-section.access-granted .card p,
+.strategy-section.access-granted .card h3 {
+    filter: none;
+    opacity: 1;
+}
+
+.strategy-section::before {
+    content: "Register and purchase access to view all strategies";
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: #00aaff;
+}
+
+.access-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.access-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.access-form input:focus {
+    outline: none;
+    border-color: #00aaff;
 }

@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <title>Bybit Indicators and Strategies Research</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Owl of Profit - Trading Strategies</title>
+    <link rel="stylesheet" href="style.css">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9GWE8MYVH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-C9GWE8MYVH');
-  </script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9GWE8MYVH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-C9GWE8MYVH');
+    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AX83y57XU7kYd6Tp4mw0TFETfD-irDCUWCC5MVJMJtpoCr5YOOTrVbDGc8jP-OFzXTpr_ZSayNsqvtYt&currency=EUR&locale=en_US"></script>
 </head>
 <body>
-    <header>
-        <h1>Bybit Indicators and Strategies Research</h1>
-    </header>
-
     <main>
+        <div class="banner-container">
+            <img src="robot-trading-scene.png" alt="Trading Robot" class="banner">
+        </div>            
         <section class="center">
-            <div class="banner-container">
-                <img src="robot-trading-scene.png" alt="Trading Robot" class="banner">
-            </div>            
             <h2>About Me</h2>
-            <p>Hi!</p>
-            <p>Owl of Profit welcomes you here!</p>
+            <p>Hello! 👋</p>
+            <p>Welcome to Owl of Profit! 🦉</p>
             <p>
-                I’ve been focusing on <strong>crypto trading strategies</strong> with a particular interest in the <strong>Bybit market</strong>.
-                Over time, I’ve tested various indicators and strategy combinations to better understand how they perform under different market conditions.
+                I am a passionate trader and trading strategy developer specializing in the <strong>cryptocurrency market</strong>, 
+                specifically on the <strong>Bybit</strong> platform. My journey began with a fascination for automated trading 
+                and evolved into a deep understanding of market mechanisms.
             </p>
             <p>
-                This page is dedicated to sharing the <strong>results of my tests</strong>. Here, you’ll find insights into which indicators and strategies have shown promising outcomes.
+                Each of my strategies is the result of thorough research, testing, and optimization. I use real 
+                market data and conditions to ensure that the results are reliable and applicable in real trading.
             </p>
             <p>
-                Whether you’re exploring new trading ideas or simply curious about how certain strategies perform, this page provides a transparent look at the data and findings I’ve gathered.
+                On this site, I share the results of my research and testing of various indicators and their combinations. 
+                I believe in transparency, which is why I provide detailed statistics and results for each strategy.
             </p>
         </section>
 
         <section class="center">
             <h2>My Work</h2>
             <p>
-                I focus on testing and analyzing crypto trading strategies specifically tailored for the Bybit market.
-                My work involves experimenting with a variety of indicators and their combinations. All strategies are tested on a real account
-                with real money, ensuring that the results reflect actual market conditions.
+                I focus on developing and testing cryptocurrency trading strategies specifically for Bybit. Each 
+                strategy is tested on a real account with real money, ensuring that the results reflect 
+                actual market conditions. My strategies are based on thorough analysis and optimization 
+                of various indicators and their combinations.
             </p>
         </section>
 
@@ -55,8 +56,8 @@
 
             <h3>TradingView</h3>
             <p>
-                When brainstorming new strategies, I turn to TradingView for exploring new indicators and generating ideas.
-                It’s an essential tool for traders to visualize charts and indicators.
+                TradingView is my main tool for market analysis and strategy development. It provides 
+                an excellent environment for testing indicators and visualizing trading opportunities.
             </p>
             <a href="https://www.tradingview.com/pricing/?share_your_love=One_Eyed_Owl" target="_blank">
                 <img src="TradingView.png" alt="TradingView" class="hover-effect logo-small">
@@ -72,20 +73,54 @@
         </section>
 
         <section class="center">
-            <h1 class="large-title">My Ko-Fi Account</h1>
+            <h1 class="large-title">Support My Work</h1>
             <a href="https://ko-fi.com/owlofprofit" target="_blank">
-                <img src="Ko-fi.png" alt="Support My Work on Ko-Fi" class="hover-effect logo-large">
+                <img src="Ko-fi.png" alt="Support my work on Ko-Fi" class="hover-effect logo-large">
             </a>
             <p>
-                ☕ <strong>Support My Work</strong>
+                ☕ <strong>Support my research</strong>
             </p>
             <p>
-                If you enjoy what I do, you can support me by buying me a coffee or exploring my exclusive trading bots!
+                If you like my work, you can support me by buying me a coffee or getting access to my trading strategies!
             </p>
         </section>
 
+        <section class="pricing-section center">
+            <h2>Get Access to Trading Strategies</h2>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <h3>Trading Strategies Package</h3>
+                    
+                    <!-- Guest content (registration form) -->
+                    <div id="guest-content">
+                        <h4>Step 1: Register</h4>
+                        <form id="registrationForm" onsubmit="handleRegistration(event)" class="access-form">
+                            <input type="text" id="username" placeholder="Username" required>
+                            <input type="email" id="email" placeholder="Email" required>
+                            <input type="password" id="password" placeholder="Password" required>
+                            <button type="submit" class="cta-button">
+                                Register
+                            </button>
+                        </form>
+                        <p class="note">Already registered?</p>
+                        <button onclick="handleLogin()" class="cta-button" style="background: #2a2a2a;">
+                            Login
+                        </button>
+                    </div>
+
+                    <!-- User content (payment options) -->
+                    <div id="user-content" style="display: none;">
+                        <h4>Step 2: Complete Payment</h4>
+                        <div class="price">19€</div>
+                        <!-- PayPal Button Container -->
+                        <div id="paypal-button-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="strategy-section">
-            <h2 class="strategies-title">Strategies</h2>
+            <h2 class="strategies-title">Trading Strategies</h2>
             <div class="cards-container">
                 <!-- Existing Cards -->
                 <div class="card" onclick="openModal(this)">
@@ -149,7 +184,7 @@
                 </div>
 
                 <div class="card" onclick="openModal(this)">
-                    <img src="Keltner Channels + Momentum Strategy 1000PEPEUSDT.png" alt="Keltner Channels + Momentum Strategy">
+                    <img src="Keltner Channels + Momentum Strategy 1000PEPEUSDT.png" alt="Keltner Channels + Momentum  Strategy">
                     <h3 class="status-profitable">Keltner Channels + Momentum  Strategy</h3>
                     <p><strong>Tested on:</strong> 1000PEPEUSDT</p>
                     <p><strong>Status:</strong> Profitable</p>
