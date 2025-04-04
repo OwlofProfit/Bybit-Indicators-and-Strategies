@@ -811,3 +811,104 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Utility funkcie pre prácu s localStorage
+function getUsers() {
+    return JSON.parse(localStorage.getItem('users') || '[]');
+}
+
+function saveUsers(users) {
+    localStorage.setItem('users', JSON.stringify(users));
+}
+
+// Event listener pre načítanie stránky
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+});
+
+// Kontrola prihlásenia pri načítaní stránky
+function checkLoginStatus() {
+    const loggedUser = JSON.parse(localStorage.getItem('loggedUser'));
+    if (loggedUser) {
+        updateUIForLoggedUser(loggedUser.username);
+    }
+}
+
+// Aktualizácia UI po prihlásení
+function updateUIForLoggedUser(username) {
+    document.getElementById('auth-buttons').style.display = 'none';
+    document.getElementById('user-welcome').style.display = 'block';
+    document.getElementById('username-display').textContent = username;
+}
+
+// Registrácia nového užívateľa
+function handleEmailRegistration(event) {
+    event.preventDefault();
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+
+    const users = getUsers();
+    
+    // Kontrola či užívateľ už existuje
+    if (users.some(user => user.email === email)) {
+        alert('User with this email already exists');
+        return;
+    }
+
+    // Pridanie nového užívateľa
+    const newUser = { username, email, password };
+    users.push(newUser);
+    saveUsers(users);
+
+    // Automatické prihlásenie po registrácii
+    localStorage.setItem('loggedUser', JSON.stringify(newUser));
+    updateUIForLoggedUser(username);
+    closeModal('registration-modal');
+}
+
+// Prihlásenie užívateľa
+function handleEmailLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const users = getUsers();
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('loggedUser', JSON.stringify(user));
+        updateUIForLoggedUser(user.username);
+        closeModal('login-modal');
+    } else {
+        alert('Invalid email or password');
+    }
+}
+
+// Odhlásenie užívateľa
+function logout() {
+    localStorage.removeItem('loggedUser');
+    document.getElementById('auth-buttons').style.display = 'block';
+    document.getElementById('user-welcome').style.display = 'none';
+    document.getElementById('username-display').textContent = '';
+}
+
+// Modálne okná
+function showRegistrationOptions() {
+    document.getElementById('registration-modal').style.display = 'block';
+}
+
+function login() {
+    document.getElementById('login-modal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Zatvorenie modálneho okna pri kliknutí mimo neho
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+}
