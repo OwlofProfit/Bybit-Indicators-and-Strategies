@@ -20,6 +20,12 @@
             emailjs.init("YOUR_PUBLIC_KEY"); // Add your EmailJS public key here
         })();
     </script>
+    <script>
+        // Kontrola pri načítaní stránky
+        document.addEventListener('DOMContentLoaded', function() {
+            checkLoginStatus();
+        });
+    </script>
 </head>
 <body onload="checkLoginStatus()">
     <!-- Video Background -->
