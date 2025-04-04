@@ -74,27 +74,28 @@ function closeLoginModal() {
 
 function handleEmailLogin(event) {
     event.preventDefault();
-    
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     
-    // Get saved user data
-    const savedUser = JSON.parse(localStorage.getItem('currentUser'));
-    
-    if (savedUser && savedUser.email === email && savedUser.password === password) {
-        closeLoginModal();
-        
-        // Check if user has access
-        if (localStorage.getItem('strategyAccess') === 'granted') {
-            document.getElementById('paypal-button-container').style.display = 'none';
-            document.getElementById('notion-link').style.display = 'block';
-            alert('Welcome back! You have access to all strategies.');
-        } else {
-            alert('Login successful! Please complete payment to access strategies.');
-        }
-    } else {
-        alert('Invalid email or password. Please try again or register.');
-    }
+    // Tu by mala byť tvoja login logika
+    // Po úspešnom prihlásení:
+    const username = email.split('@')[0]; // Alebo získaj username z response servera
+    handleSuccessfulLogin(username);
+}
+
+// Po úspešnom prihlásení
+function handleSuccessfulLogin(username) {
+    document.getElementById('auth-buttons').style.display = 'none';
+    document.getElementById('user-welcome').style.display = 'block';
+    document.getElementById('username-display').textContent = username;
+    closeModal('login-modal');
+}
+
+function logout() {
+    document.getElementById('auth-buttons').style.display = 'block';
+    document.getElementById('user-welcome').style.display = 'none';
+    document.getElementById('username-display').textContent = '';
+    // Tu môžeš pridať ďalšiu logout logiku (vymazanie tokenu, session, atď.)
 }
 
 // Handle Google Login
