@@ -1045,3 +1045,36 @@ form input:focus {
     font-size: 1.2em;
     margin-bottom: 15px;
 }
+
+#user-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+#user-welcome span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+#username-display {
+    color: #ffd700; /* zlatá farba pre username */
+    font-size: 28px;
+}
+
+#user-welcome .cta-button {
+    margin-top: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    background-color: #ff4444; /* červená farba pre logout button */
+    transition: background-color 0.3s ease;
+}
+
+#user-welcome .cta-button:hover {
+    background-color: #cc0000;
+}
