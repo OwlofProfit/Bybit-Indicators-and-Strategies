@@ -72,14 +72,31 @@ function closeLoginModal() {
     document.getElementById('login-modal').style.display = 'none';
 }
 
+// Funkcia na kontrolu prihlásenia pri načítaní stránky
+function checkLoginStatus() {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+        const user = JSON.parse(userData);
+        handleSuccessfulLogin(user.username);
+    }
+}
+
+// Upravená funkcia pre prihlásenie
 function handleEmailLogin(event) {
     event.preventDefault();
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     
-    // Tu by mala byť tvoja login logika
-    // Po úspešnom prihlásení:
-    const username = email.split('@')[0]; // Alebo získaj username z response servera
+    // Tu by mala byť validácia prihlásenia
+    const username = email.split('@')[0];
+    
+    // Uložíme údaje do localStorage
+    const userData = {
+        username: username,
+        email: email
+    };
+    localStorage.setItem('userData', JSON.stringify(userData));
+    
     handleSuccessfulLogin(username);
 }
 
@@ -91,7 +108,9 @@ function handleSuccessfulLogin(username) {
     closeModal('login-modal');
 }
 
+// Upravená funkcia pre odhlásenie
 function logout() {
+    localStorage.removeItem('userData');
     document.getElementById('auth-buttons').style.display = 'block';
     document.getElementById('user-welcome').style.display = 'none';
     document.getElementById('username-display').textContent = '';
@@ -221,30 +240,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function handleRegistration(event) {
+// Upravená funkcia pre registráciu
+function handleEmailRegistration(event) {
     event.preventDefault();
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
     
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    // Tu by mala byť validácia registrácie
     
-    // Create user object
-    const user = {
-        username,
-        email,
-        password, // V reálnej aplikácii by malo byť hashované
-        accessGranted: false,
-        registrationDate: new Date().toISOString()
+    // Uložíme údaje do localStorage
+    const userData = {
+        username: username,
+        email: email
     };
+    localStorage.setItem('userData', JSON.stringify(userData));
     
-    // Uložiť používateľa do localStorage
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    
-    // Skryť registračný formulár a zobraziť platobné možnosti
-    document.getElementById('guest-content').style.display = 'none';
-    document.getElementById('user-content').style.display = 'block';
-    
-    alert('Registration successful! You can now proceed with payment.');
+    handleSuccessfulLogin(username);
+    closeModal('registration-modal');
 }
 
 function handleLogin() {
@@ -697,3 +710,104 @@ function updateStatusDisplay(message) {
     const statusDisplay = document.getElementById('status-display');
     statusDisplay.innerHTML = message;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+});
+
+// Funkcie pre modálne okná
+function showRegistrationOptions() {
+    document.getElementById('registration-modal').style.display = 'block';
+}
+
+function login() {
+    document.getElementById('login-modal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Funkcie pre autentifikáciu
+function checkLoginStatus() {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+        const user = JSON.parse(userData);
+        handleSuccessfulLogin(user.username);
+    }
+}
+
+function handleEmailLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    // Kontrola či užívateľ existuje
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('userData', JSON.stringify({
+            username: user.username,
+            email: user.email
+        }));
+        handleSuccessfulLogin(user.username);
+        closeModal('login-modal');
+    } else {
+        alert('Invalid email or password');
+    }
+}
+
+function handleEmailRegistration(event) {
+    event.preventDefault();
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+
+    // Načítanie existujúcich užívateľov
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    
+    // Kontrola či užívateľ už existuje
+    if (users.some(user => user.email === email)) {
+        alert('User with this email already exists');
+        return;
+    }
+
+    // Pridanie nového užívateľa
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Uloženie aktuálne prihláseného užívateľa
+    localStorage.setItem('userData', JSON.stringify({
+        username: username,
+        email: email
+    }));
+
+    handleSuccessfulLogin(username);
+    closeModal('registration-modal');
+}
+
+function handleSuccessfulLogin(username) {
+    document.getElementById('auth-buttons').style.display = 'none';
+    document.getElementById('user-welcome').style.display = 'block';
+    document.getElementById('username-display').textContent = username;
+}
+
+function logout() {
+    localStorage.removeItem('userData');
+    document.getElementById('auth-buttons').style.display = 'block';
+    document.getElementById('user-welcome').style.display = 'none';
+    document.getElementById('username-display').textContent = '';
+}
+
+// Pridanie event listenerov keď sa dokument načíta
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+
+    // Zatvorenie modálneho okna keď užívateľ klikne mimo neho
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+});
