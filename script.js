@@ -2,38 +2,141 @@
 // Clear any existing access
 localStorage.clear();
 
-// PayPal Button Initialization
+// Initialize PayPal Button
 paypal.Buttons({
+    style: {
+        layout: 'vertical',
+        color: 'gold',
+        shape: 'rect',
+        label: 'paypal'
+    },
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
                 amount: {
                     value: '19.00',
                     currency_code: 'EUR'
-                }
+                },
+                description: 'Access to Trading Strategies'
             }]
         });
     },
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
-            const savedUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (savedUser) {
-                savedUser.accessGranted = true;
-                savedUser.paymentDate = new Date().toISOString();
-                savedUser.paymentDetails = details;
-                localStorage.setItem('currentUser', JSON.stringify(savedUser));
-                
-                // Aktivovať prístup
-                document.querySelector('.strategy-section').classList.add('access-granted');
-                
-                // Skryť platobný formulár
-                document.getElementById('user-content').style.display = 'none';
-                
-                alert('Payment successful! You now have access to all strategies.');
-            }
+            // Hide PayPal button
+            document.getElementById('paypal-button-container').style.display = 'none';
+            
+            // Show success message and Notion link
+            document.getElementById('notion-link').style.display = 'block';
+            
+            // Save access to localStorage for future visits
+            localStorage.setItem('strategyAccess', 'granted');
+            
+            // Show success message with clear instructions
+            alert('Payment successful! The access link has appeared below the Trading Strategies section. You can bookmark it for future use.');
         });
+    },
+    onError: function(err) {
+        console.error('PayPal payment error:', err);
+        alert('An error occurred during the payment process. Please try again.');
     }
 }).render('#paypal-button-container');
+
+// Handle successful payment
+function handleSuccessfulPayment(details) {
+    // Save access to localStorage
+    localStorage.setItem('strategyAccess', 'granted');
+    localStorage.setItem('paymentDetails', JSON.stringify(details));
+    
+    // Show Notion link
+    document.getElementById('paypal-button-container').style.display = 'none';
+    document.getElementById('notion-link').style.display = 'block';
+    
+    // Show success message
+    alert('Payment successful! Thank you for your purchase.');
+}
+
+// Auth functions
+function register() {
+    // Implement Google Auth here
+    alert('Google registration will be implemented soon.');
+}
+
+// Login Functions
+function login() {
+    document.getElementById('login-modal').style.display = 'block';
+    initializeGoogleSignIn(); // This will initialize Google login button
+}
+
+function closeLoginModal() {
+    document.getElementById('login-modal').style.display = 'none';
+}
+
+function handleEmailLogin(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    
+    // Get saved user data
+    const savedUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (savedUser && savedUser.email === email && savedUser.password === password) {
+        closeLoginModal();
+        
+        // Check if user has access
+        if (localStorage.getItem('strategyAccess') === 'granted') {
+            document.getElementById('paypal-button-container').style.display = 'none';
+            document.getElementById('notion-link').style.display = 'block';
+            alert('Welcome back! You have access to all strategies.');
+        } else {
+            alert('Login successful! Please complete payment to access strategies.');
+        }
+    } else {
+        alert('Invalid email or password. Please try again or register.');
+    }
+}
+
+// Handle Google Login
+function handleGoogleLogin(response) {
+    const userProfile = response.getBasicProfile();
+    const googleId = userProfile.getId();
+    
+    // Get saved user data
+    const savedUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (savedUser && savedUser.googleId === googleId) {
+        closeLoginModal();
+        
+        // Check if user has access
+        if (localStorage.getItem('strategyAccess') === 'granted') {
+            document.getElementById('paypal-button-container').style.display = 'none';
+            document.getElementById('notion-link').style.display = 'block';
+            alert('Welcome back! You have access to all strategies.');
+        } else {
+            alert('Login successful! Please complete payment to access strategies.');
+        }
+    } else {
+        alert('No account found with this Google account. Please register first.');
+    }
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const loginModal = document.getElementById('login-modal');
+    if (event.target === loginModal) {
+        closeLoginModal();
+    }
+};
+
+// Check access on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const hasAccess = localStorage.getItem('strategyAccess') === 'granted';
+    if (hasAccess) {
+        document.getElementById('paypal-button-container').style.display = 'none';
+        document.getElementById('notion-link').style.display = 'block';
+    }
+});
 
 function openModal(card) {
     const savedUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -223,3 +326,373 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+// Initialize Google Sign-In
+function startApp() {
+    gapi.load('auth2', function() {
+        gapi.auth2.init({
+            client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com'
+        }).then(function() {
+            // Attach sign-in to buttons after Google API is ready
+            attachSignin(document.getElementById('google-register'));
+            attachSignin(document.getElementById('google-login'));
+        });
+    });
+}
+
+// Attach Google Sign-In to button
+function attachSignin(element) {
+    const auth2 = gapi.auth2.getAuthInstance();
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            handleGoogleSuccess(profile);
+        },
+        function(error) {
+            console.error('Google Sign-In Error:', error);
+        }
+    );
+}
+
+// Handle successful Google Sign-In
+function handleGoogleSuccess(profile) {
+    const user = {
+        username: profile.getName(),
+        email: profile.getEmail(),
+        googleId: profile.getId(),
+        profilePic: profile.getImageUrl(),
+        registrationDate: new Date().toISOString()
+    };
+    
+    // Store user data
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Close modals
+    closeModal('registration-modal');
+    closeModal('login-modal');
+    
+    // Show success message
+    alert('Successfully signed in! You can now proceed with payment.');
+}
+
+// Show registration modal
+function showRegistrationOptions() {
+    document.getElementById('registration-modal').style.display = 'block';
+    
+    // Render Google button
+    google.accounts.id.renderButton(
+        document.getElementById('google-register'),
+        { theme: 'outline', size: 'large' }
+    );
+}
+
+// Show login modal
+function login() {
+    document.getElementById('login-modal').style.display = 'block';
+    
+    // Render Google button
+    google.accounts.id.renderButton(
+        document.getElementById('google-login'),
+        { theme: 'outline', size: 'large' }
+    );
+}
+
+// Close modal function
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Handle email registration
+function handleEmailRegistration(event) {
+    event.preventDefault();
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+    
+    const user = {
+        username,
+        email,
+        password,
+        registrationDate: new Date().toISOString()
+    };
+    
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    closeModal('registration-modal');
+    alert('Registration successful! You can now proceed with payment.');
+}
+
+// Handle email login
+function handleEmailLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    
+    const savedUser = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (savedUser && savedUser.email === email && savedUser.password === password) {
+        closeModal('login-modal');
+        alert('Login successful!');
+    } else {
+        alert('Invalid email or password');
+    }
+}
+
+// Initialize Google Sign-In when page loads
+window.onload = function() {
+    google.accounts.id.initialize({
+        client_id: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
+        callback: handleGoogleSignIn
+    });
+};
+
+// Google Sign-In Handler
+function handleGoogleSignIn(response) {
+    const responsePayload = jwt_decode(response.credential);
+    
+    const user = {
+        username: responsePayload.name,
+        email: responsePayload.email,
+        profilePic: responsePayload.picture,
+        googleId: responsePayload.sub,
+        registrationDate: new Date().toISOString()
+    };
+
+    // Store user data
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Close modals
+    closeModal('registration-modal');
+    closeModal('login-modal');
+    
+    // Show success message
+    alert('Successfully signed in! You can now proceed with payment.');
+}
+
+function subscribeToBotAccess() {
+    // Check if user is logged in
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (!user) {
+        alert('Please register or login first.');
+        showRegistrationOptions();
+        return;
+    }
+
+    // Create PayPal payment for bot access
+    paypal.Buttons({
+        style: {
+            layout: 'vertical',
+            color: 'gold',
+            shape: 'rect',
+            label: 'paypal'
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '29.00',
+                        currency_code: 'EUR'
+                    },
+                    description: 'SAR Bot Monthly Access'
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // Store bot access
+                const user = JSON.parse(localStorage.getItem('currentUser'));
+                user.botAccess = {
+                    type: 'SAR',
+                    startDate: new Date().toISOString(),
+                    expiryDate: new Date(Date.now() + 30*24*60*60*1000).toISOString()
+                };
+                localStorage.setItem('currentUser', JSON.stringify(user));
+
+                // Show success message and download link
+                showBotAccess();
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+function showBotAccess() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (user && user.botAccess) {
+        document.getElementById('bot-access').style.display = 'block';
+        document.getElementById('bot-download').href = 'path/to/your/bot.zip';
+    }
+}
+
+function showBotInterface() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    if (!user) {
+        alert('Please register or login first');
+        showRegistrationOptions();
+        return;
+    }
+    
+    if (!user.botAccess) {
+        initiateBotPayment();
+        return;
+    }
+    
+    document.getElementById('bot-interface-modal').style.display = 'block';
+}
+
+function initiateBotPayment() {
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '29.00',
+                        currency_code: 'EUR'
+                    },
+                    description: 'SAR Bot Monthly Access'
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                const user = JSON.parse(localStorage.getItem('currentUser'));
+                user.botAccess = {
+                    type: 'SAR',
+                    startDate: new Date().toISOString(),
+                    expiryDate: new Date(Date.now() + 30*24*60*60*1000).toISOString()
+                };
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                document.getElementById('bot-interface-modal').style.display = 'block';
+            });
+        }
+    }).render('#paypal-button-container');
+}
+
+let botRunning = false;
+
+function startBot() {
+    const apiKey = document.getElementById('api-key').value;
+    const apiSecret = document.getElementById('api-secret').value;
+    const pairs = document.getElementById('trading-pairs').value;
+    
+    if (!apiKey || !apiSecret || !pairs) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    botRunning = true;
+    document.getElementById('status-display').innerHTML = 'Bot is running';
+    document.getElementById('status-display').style.color = '#00ff00';
+    
+    // Start logging dummy trades for demo
+    startTradeLogging();
+}
+
+function stopBot() {
+    botRunning = false;
+    document.getElementById('status-display').innerHTML = 'Bot is stopped';
+    document.getElementById('status-display').style.color = '#ff4444';
+}
+
+function startTradeLogging() {
+    if (!botRunning) return;
+    
+    const logBox = document.getElementById('trade-log');
+    const pairs = document.getElementById('trading-pairs').value.split(',');
+    
+    setInterval(() => {
+        if (botRunning) {
+            const pair = pairs[Math.floor(Math.random() * pairs.length)];
+            const action = Math.random() > 0.5 ? 'BUY' : 'SELL';
+            const price = (Math.random() * 1000).toFixed(2);
+            
+            const log = `${new Date().toLocaleTimeString()} - ${pair.trim()}: ${action} at $${price}`;
+            const logEntry = document.createElement('div');
+            logEntry.textContent = log;
+            logBox.appendChild(logEntry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+    }, 5000);
+}
+
+function sendEmail(event) {
+    event.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    // Using EmailJS service
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        to_email: 'owlofprofit@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+    })
+    .then(function(response) {
+        alert('Message sent successfully!');
+        document.getElementById('contact-form').reset();
+    })
+    .catch(function(error) {
+        console.error('Error:', error);
+        alert('Failed to send message. Please try again.');
+    });
+}
+
+function saveAPIKeys() {
+    const apiKey = document.getElementById('api-key').value;
+    const apiSecret = document.getElementById('api-secret').value;
+
+    if (!apiKey || !apiSecret) {
+        alert('Please enter both API Key and Secret');
+        return;
+    }
+
+    // Store API keys securely (consider encryption in production)
+    localStorage.setItem('bybit_api_key', apiKey);
+    localStorage.setItem('bybit_api_secret', apiSecret);
+    
+    updateStatusDisplay('API Keys saved successfully');
+}
+
+function startSelectedBots() {
+    const selectedBots = document.querySelectorAll('input[name="bot-selection"]:checked');
+    
+    if (selectedBots.length === 0) {
+        alert('Please select at least one bot to start');
+        return;
+    }
+
+    if (!localStorage.getItem('bybit_api_key') || !localStorage.getItem('bybit_api_secret')) {
+        alert('Please save your API keys first');
+        return;
+    }
+
+    selectedBots.forEach(bot => {
+        startBot(bot.id);
+    });
+}
+
+function startBot(botId) {
+    const statusDisplay = document.getElementById('status-display');
+    statusDisplay.innerHTML = `${botId} is running`;
+    statusDisplay.style.color = '#00ff00';
+    
+    // Start logging dummy trades for demo
+    startTradeLogging();
+}
+
+function stopAllBots() {
+    const statusDisplay = document.getElementById('status-display');
+    statusDisplay.innerHTML = 'All bots stopped';
+    statusDisplay.style.color = '#ff4444';
+    
+    stopTradeLogging();
+}
+
+function updateStatusDisplay(message) {
+    const statusDisplay = document.getElementById('status-display');
+    statusDisplay.innerHTML = message;
+}
