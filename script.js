@@ -1024,53 +1024,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Funkcie pre správu užívateľov v localStorage
 function saveUserToLocalStorage(userData) {
+    // Uloženie do users array
     let users = JSON.parse(localStorage.getItem('users') || '[]');
     users.push(userData);
     localStorage.setItem('users', JSON.stringify(users));
+    
+    // Uloženie aktuálne prihláseného užívateľa
+    localStorage.setItem('currentUser', JSON.stringify(userData));
 }
 
-// Registrácia nového užívateľa
-function handleEmailRegistration(event) {
-    event.preventDefault();
-    
-    const username = document.getElementById('reg-username').value;
-    const email = document.getElementById('reg-email').value;
-    const password = document.getElementById('reg-password').value;
-
-    // Kontrola či užívateľ už existuje
-    let users = JSON.parse(localStorage.getItem('users') || '[]');
-    if (users.some(user => user.email === email)) {
-        alert('User with this email already exists');
-        return;
-    }
-
-    // Uloženie nového užívateľa
-    const newUser = { username, email, password };
-    saveUserToLocalStorage(newUser);
-    
-    // Automatické prihlásenie po registrácii
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    updateUIAfterLogin(newUser);
-    closeModal('registration-modal');
-}
-
-// Prihlásenie užívateľa
-function handleEmailLogin(event) {
-    event.preventDefault();
-    
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-
-    // Kontrola prihlasovacích údajov
-    let users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find(u => u.email === email && u.password === password);
-
-    if (user) {
-        localStorage.setItem('currentUser', JSON.stringify(user));
+// Kontrola prihlásenia pri načítaní stránky
+function checkLoginStatus() {
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+        const user = JSON.parse(currentUser);
         updateUIAfterLogin(user);
-        closeModal('login-modal');
-    } else {
-        alert('Invalid email or password');
+        console.log('User logged in:', user); // Pre debugging
     }
 }
 
@@ -1081,38 +1050,37 @@ function updateUIAfterLogin(user) {
     document.getElementById('username-display').textContent = user.username;
 }
 
-// Kontrola prihlásenia pri načítaní stránky
-function checkLoginStatus() {
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-        updateUIAfterLogin(JSON.parse(currentUser));
+// Prihlásenie užívateľa
+function handleEmailLogin(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        updateUIAfterLogin(user);
+        closeModal('login-modal');
+        console.log('Login successful:', user); // Pre debugging
+    } else {
+        alert('Invalid email or password');
     }
 }
 
-// Odhlásenie
+// Odhlásenie užívateľa
 function logout() {
     localStorage.removeItem('currentUser');
     document.getElementById('auth-buttons').style.display = 'block';
     document.getElementById('user-welcome').style.display = 'none';
     document.getElementById('username-display').textContent = '';
+    console.log('User logged out'); // Pre debugging
 }
 
-// Modal funkcie
-function showRegistrationOptions() {
-    document.getElementById('registration-modal').style.display = 'block';
-}
-
-function login() {
-    document.getElementById('login-modal').style.display = 'block';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-// Event listener pre zatvorenie modalu pri kliknutí mimo neho
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-    }
-}
+// Event listener pre načítanie stránky
+document.addEventListener('DOMContentLoaded', function() {
+    checkLoginStatus();
+    console.log('Page loaded, checking login status'); // Pre debugging
+});
