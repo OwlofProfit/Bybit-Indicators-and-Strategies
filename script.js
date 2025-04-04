@@ -1300,3 +1300,116 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+// Správa užívateľov
+let currentUser = null;
+
+// Kontrola prihlásenia pri načítaní stránky
+function checkLoginStatus() {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        updateUI(true);
+        console.log('User logged in:', currentUser); // Debug log
+    }
+}
+
+// Registrácia
+function handleEmailRegistration(event) {
+    event.preventDefault();
+    const username = document.getElementById('reg-username').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-password').value;
+
+    // Načítanie existujúcich užívateľov
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+    
+    // Kontrola či email už existuje
+    if (users.find(u => u.email === email)) {
+        alert('Email already registered');
+        return;
+    }
+
+    // Pridanie nového užívateľa
+    const newUser = { username, email, password };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    // Automatické prihlásenie
+    currentUser = newUser;
+    localStorage.setItem('currentUser', JSON.stringify(newUser));
+    
+    updateUI(true);
+    closeModal('registration-modal');
+    console.log('Registration successful:', newUser); // Debug log
+}
+
+// Prihlásenie
+function handleEmailLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.email === email && u.password === password);
+
+    if (user) {
+        currentUser = user;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        updateUI(true);
+        closeModal('login-modal');
+        console.log('Login successful:', user); // Debug log
+    } else {
+        alert('Invalid email or password');
+    }
+}
+
+// Odhlásenie
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('currentUser');
+    updateUI(false);
+    console.log('Logged out'); // Debug log
+}
+
+// Aktualizácia UI
+function updateUI(isLoggedIn) {
+    const authButtons = document.getElementById('auth-buttons');
+    const userWelcome = document.getElementById('user-welcome');
+    const usernameDisplay = document.getElementById('username-display');
+
+    if (isLoggedIn && currentUser) {
+        authButtons.style.display = 'none';
+        userWelcome.style.display = 'flex';
+        usernameDisplay.textContent = currentUser.username;
+    } else {
+        authButtons.style.display = 'flex';
+        userWelcome.style.display = 'none';
+        usernameDisplay.textContent = '';
+    }
+}
+
+// Modal funkcie
+function showRegistrationOptions() {
+    document.getElementById('registration-modal').style.display = 'block';
+}
+
+function login() {
+    document.getElementById('login-modal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Event listenery
+document.addEventListener('DOMContentLoaded', () => {
+    checkLoginStatus();
+});
+
+// Zatvorenie modalu pri kliknutí mimo
+window.onclick = (event) => {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+};
