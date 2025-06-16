@@ -1095,3 +1095,121 @@ form input:focus {
     font-size: 1.1em;
     line-height: 1.4;
 }
+
+.expertise-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.expertise-list li {
+    margin: 10px 0;
+    padding-left: 0;
+    position: relative;
+}
+
+.expertise-list li:before {
+    content: none;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-card h3 {
+    color: #fff;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.pricing-card .price {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.pricing-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.pricing-card .features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.pricing-card .features li {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 10px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.pricing-card .features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+.pricing-card .paypal-button-container {
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+}

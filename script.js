@@ -1,36 +1,62 @@
 // -----------------------------
 // PayPal Button Configuration
 // -----------------------------
-// PayPal integrácia
+// PayPal Integration for Mini Script
 paypal.Buttons({
-    style: {
-        layout: 'vertical',
-        color: 'gold',
-        shape: 'rect',
-        label: 'paypal'
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: '19.00'
+                },
+                description: 'Mini Script - Simple TradingView Indicators'
+            }]
+        });
     },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+        });
+    }
+}).render('#paypal-button-mini');
+
+// PayPal Integration for Advanced Script
+paypal.Buttons({
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    value: '29.00'
+                },
+                description: 'Advanced Script - Complex Strategies'
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+        });
+    }
+}).render('#paypal-button-advanced');
+
+// PayPal Integration for Pine Script to Python
+paypal.Buttons({
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
                 amount: {
                     value: '49.00'
                 },
-                description: 'Pine Script Code - Lifetime Access'
+                description: 'Pine Script to Python Conversion'
             }]
         });
     },
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
-            // Show success message
             alert('Transaction completed by ' + details.payer.name.given_name);
-            // You can add additional logic here to handle successful payment
         });
-    },
-    onError: function(err) {
-        console.error('PayPal error:', err);
-        alert('Payment error. Please try again or contact support.');
     }
-}).render('#paypal-button-container');
+}).render('#paypal-button-conversion');
 
 // -----------------------------
 // Server Authentication
