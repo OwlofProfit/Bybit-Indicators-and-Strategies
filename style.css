@@ -1078,3 +1078,20 @@ form input:focus {
 #user-welcome .cta-button:hover {
     background-color: #cc0000;
 }
+
+.purchase-note {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.purchase-note p {
+    margin: 0;
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1.4;
+}

@@ -12,27 +12,18 @@ paypal.Buttons({
     createOrder: function(data, actions) {
         return actions.order.create({
             purchase_units: [{
-                amount: { 
-                    value: '19.00',
-                    currency_code: 'EUR'
+                amount: {
+                    value: '49.00'
                 },
-                description: 'Access to Trading Strategies'
+                description: 'Pine Script Code - Lifetime Access'
             }]
         });
     },
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
-            // Uložíme informáciu o platbe
-            localStorage.setItem('strategyAccess', 'granted');
-            
-            // Skryjeme PayPal tlačidlo
-            document.getElementById('paypal-button-container').style.display = 'none';
-            
-            // Zobrazíme Notion link
-            document.getElementById('notion-link').style.display = 'block';
-            
-            // Oznámime úspešnú platbu
-            alert('Payment successful! You now have lifetime access to the strategies.');
+            // Show success message
+            alert('Transaction completed by ' + details.payer.name.given_name);
+            // You can add additional logic here to handle successful payment
         });
     },
     onError: function(err) {
